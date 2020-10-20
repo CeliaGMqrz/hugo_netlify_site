@@ -1,4 +1,4 @@
-baseURL = "localhost"
+baseURL = "https://unbitdeinformacioncadadia.netlify.app/"
 languageCode = "en-us"
 title = "Un bit de informacion cada día"
 theme = "hugo-theme-hello-friend-ng"
