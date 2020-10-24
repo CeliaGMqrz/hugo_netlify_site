@@ -11,7 +11,7 @@ tags: ['cifrado asimétrico','gpg','openssl']
 
 En esta práctica vamos a cifrar ficheros utilizando cifrado asimétrico utilizando el programa gpg.
 
-## Cifrado asimétrico con gpg
+## Cifrado Asimétrico con GPG
 
 * Tarea 1: [Generación de claves](https://github.com/CeliaGMqrz/cifrado_asimetrico_gpg_openssl/blob/main/cifrado_asim%C3%A9trico_gpg_openssl.md)
 
@@ -21,7 +21,7 @@ En esta práctica vamos a cifrar ficheros utilizando cifrado asimétrico utiliza
 
 * Tarea 4: [Exportar clave a un servidor público de claves PGP](https://github.com/CeliaGMqrz/cifrado_asimetrico_gpg_openssl/blob/main/exportar_servidor_publico.md)
 
-## Cifrado asimétrico con openssl
+## Cifrado asimétrico con OPENSSL
 
 * Tarea 5: [Cifrado asimétrico con openssl](https://github.com/CeliaGMqrz/cifrado_asimetrico_gpg_openssl/blob/main/asimetrico_openssl.md)
 
