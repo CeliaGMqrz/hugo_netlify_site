@@ -1,5 +1,5 @@
 ---
-title: "VirtualHosting Con Apache2"
+title: "Guia de Virtual Hosting Con Apache"
 date: 2020-10-21T21:54:22+02:00
 draft: false
 toc: false
@@ -191,10 +191,10 @@ celia@debian:~/vagrant/virtualhosting$
 * Lo vemos desde nuestro navegador en la máquina anfitriona:
 
 **www.iesgn.org**
-![cap2.jpeg](https://github.com/CeliaGMqrz/virtualhosting_apache/blob/main/capturas/cap2.jpeg)
+![cap2.jpeg](/images/cap2.jpeg)
 
 **www.departamentosgn.org**
-![cap1.jpeg](https://github.com/CeliaGMqrz/virtualhosting_apache/blob/main/capturas/cap1.jpeg)
+![cap1.jpeg](/images/cap1.jpeg)
 
 
 ### Repite el ejercicio cambiando los directorios de trabajo a /srv/www. ¿Qué modificación debes hacer en el fichero /etc/apache2/apache2.conf?
