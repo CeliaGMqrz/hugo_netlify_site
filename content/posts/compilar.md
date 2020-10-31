@@ -152,7 +152,7 @@ apt-get install libncurses5-dev
 ./configure
 ```
 
-[salida](https://github.com/CeliaGMqrz/utilidades/blob/main/salida.md)
+Haz click aquí para ver la salida ->> [salida](https://github.com/CeliaGMqrz/utilidades/blob/main/salida.md)
 
 ### COMPILAR. MAKEFILE
 
