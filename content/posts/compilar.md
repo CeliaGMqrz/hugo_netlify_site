@@ -173,7 +173,7 @@ make[1]: Leaving directory '/usr/local/lynx/lynx2.8.9rel.1/src'
 
 ```
 
-* Vamos al directorio que nos ha creado donde están todos los ficheros objetos:
+* Vamos al directorio que nos ha creado y vemos donde están todos los ficheros objetos:
 
 ```sh
 cd lynx/lynx2.8.9rel.1/src/
@@ -181,7 +181,7 @@ cd lynx/lynx2.8.9rel.1/src/
 ```
 ![objetos.png](/images/objetos.png)
 
-* Ahora deberemos de hacer un *make install* en el directorio adecuado
+* Ahora deberemos de hacer un *make install* en el directorio adecuado:
 
 ```sh
 root@buster:/usr/local/lynx/lynx2.8.9rel.1# make install
@@ -198,7 +198,7 @@ Use make install-help to install the help-files
 Use make install-doc to install extra documentation files
 
 ```
-* Después de todo esto ya tendriamos instalado **lynx**, nos muestra cómo podemos instalar la ayuda y la documentación extra.
+Después de todo esto ya tendriamos instalado **lynx**, nos muestra cómo podemos instalar la ayuda y la documentación extra.
 
 * Ahora ejecutamos **lynx** y vemos que funciona perfectamente.
 
