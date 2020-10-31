@@ -63,7 +63,7 @@ sudo apt-get install build-essential
 
 Está escrito en C, y en las fuentes aparece un fichero Makefile para poder compilarlo.
 
-* [Información oficicial del paquete](https://packages.debian.org/buster/lynx)
+* [Información oficial del paquete](https://packages.debian.org/buster/lynx)
 
 * [Contenido del paquete](https://sources.debian.org/src/lynx/2.8.9rel.1-3/)
 
