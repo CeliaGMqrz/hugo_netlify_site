@@ -307,3 +307,12 @@ fi'
 
 ```
 
+* Miramos donde está instalado el paquete
+
+```sh
+root@buster:/home/vagrant# whereis lynx
+lynx: /usr/local/bin/lynx /usr/local/etc/lynx.lss /usr/local/etc/lynx.cfg /usr/local/lynx
+
+root@buster:/home/vagrant# which lynx
+/usr/local/bin/lynx
+```
