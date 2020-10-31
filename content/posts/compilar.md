@@ -69,7 +69,7 @@ Está escrito en C, y en las fuentes aparece un fichero Makefile para poder comp
 
 
 
-### 1. Descargar las fuentes
+### Descargar las fuentes
 
 * Primero vamos a ubicarnos en un sitio adecuado para descargar las fuentes. En este caso vamos a /usr/local para no interferir con otros archivos del sistema y creamos una carpeta llamada lynx.
 
@@ -118,7 +118,7 @@ COPYING         README           clean.com     docs          lynx_help     po
 Como podemos comprobar hay un fichero llamado *INSTALLATION*, que nos va a indicar como tenemos que compilar e instalar lynx.
 
 
-* 1. Autoconfigurar. Debemos utilizar ./configure
+### Autoconfigurar. Debemos utilizar ./configure
 
 ```sh
 root@buster:/usr/local/lynx/lynx2.8.9rel.1# ./configure
@@ -153,6 +153,8 @@ apt-get install libncurses5-dev
 ```
 
 [salida](https://github.com/CeliaGMqrz/utilidades/blob/main/salida.md)
+
+### COMPILAR. MAKEFILE
 
 * Según la guía de *INSTALLATION* ahora tenemos que ejecutar **make** para crear los objetos y archivos necesarios.
 
