@@ -9,7 +9,7 @@ aliases = ["about-us","about-hugo","contact"]
 ![avatar](/images/avatar_red.jpg)
 
 Bienvenid@s.
-Me llamo Celia, soy estudiante de **Administración de Sistemas Informáticos en Red** y en este sitio web voy a ir publicando posts sobre los diferentes conocimientos que estoy adquiriendo en mi ciclo. 
+Me llamo Celia, soy estudiante de **Administración de Sistemas Informáticos en Red** en el instituto IES GONZALO NAZARENO (Dos Hermanas, Sevilla), y en este sitio web voy a ir publicando posts sobre los diferentes conocimientos que estoy adquiriendo en mi ciclo. 
 
 Espero que sea de ayuda y aprendamos juntos.
 
