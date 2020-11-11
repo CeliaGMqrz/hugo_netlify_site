@@ -256,11 +256,11 @@ lines 1-22/22 (END)
 
 ```
 
-![index.png](images/index.png)
+![index.png](/images/lamp/index.png)
 
 php en funcionamiento:
 
-![testphp.png](images/testphp.png)
+![testphp.png](/images/lamp/testphp.png)
 
 
 
