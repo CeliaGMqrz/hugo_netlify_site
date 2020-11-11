@@ -1,5 +1,5 @@
 ---
-title: "Nginx"
+title: "Servidor Nginx"
 date: 2020-11-11T17:51:13+01:00
 draft: false
 toc: false
@@ -8,7 +8,7 @@ tags: ['nginx','virtualhosting','servidor nginx']
 ---
 
 
-# Servidor Web Nginx
+# Servidor Web Nginxx
 
 ![image.jpg](/images/nginx/image.jpg)
 
