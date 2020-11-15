@@ -91,7 +91,7 @@ make help
 ```
 
 
-## 3. Copiar la configuración del kernel que tenemos actualmente en nuestro sistema para que 'make oldconfig' le indique esa configuración a nuestro kernel nuevo.
+## 3. Copiar la configuración del kernel que tenemos actualmente
 
 * Esta es la opción que nos muestra la ayuda
 
@@ -132,7 +132,7 @@ celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=y" .config|wc -l
 2013
 ```
 
-## 4. Selección y reducción de elementos de parte de **localmodconfig** que modifica el fichero .config
+## 4. Selección y reducción de elementos (loadmodconfig)
 
 ```sh
 make localmodconfig
@@ -146,7 +146,9 @@ celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=y" .config|wc -l
 1449
 ```
 
-## 5. Realizamos la primera compilación (indicandole el numero de nucleos que vayamos a utilizar para agilizar el proceso)
+## 5. Primera compilación
+
+* Realizamos la primera compilación (indicandole el numero de nucleos que vayamos a utilizar para agilizar el proceso)
 
 * Nos aseguramos que tenemos estos paquetes instalados antes de proceder con la compilación:
 
@@ -161,7 +163,9 @@ pkg-config
 make -j 4 bindeb-pkg
 ```
 
-## 6. Comprobar el peso del fichero deb, en el directorio padre que es donde se han generado los ficheros deb
+## 6. Tamaño del fichero deb 
+
+* Comprobar el peso del fichero deb, en el directorio padre que es donde se han generado los ficheros deb
 
 ```sh
 celiagm@debian:~/compilar_kernel$ du -hs linux-image-4.19.152_4.19.152-1_amd64.deb 
