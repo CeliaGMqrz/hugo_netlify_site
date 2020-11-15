@@ -18,9 +18,9 @@ El hardware básico incluye como mínimo el teclado, la interfaz de red y la con
 
 ______________________________________________________________________________________
 
-1. Obtener el código fuente del kernel
+## 1. Obtener el código fuente del kernel
 
-Buscamos las fuentes en la paqueteria de Debian
+* Buscamos las **fuentes** en la paqueteria de Debian
 
 ```sh
 apt search linux-source
@@ -36,7 +36,7 @@ linux-source-4.19/stable 4.19.152-1 all
   Linux kernel source for version 4.19 with Debian patches
 
 ```
-Segun la versión de kernel que tenemos instalado:
+* Segun la versión de kernel que tenemos instalado:
 
 ```sh
 apt policy linux-source
@@ -52,13 +52,13 @@ linux-source:
         500 http://deb.debian.org/debian buster/main amd64 Packages
 ```
 
-Entonces descargamos la versión del kernel que nos pertenece. Además del paquete build-essential y qtbase5-dev, que son esenciales para su compilación.
+* Entonces descargamos la versión del kernel que nos pertenece. Además del paquete **build-essential** y **qtbase5-dev**, que son esenciales para su compilación.
 
 ```sh
 apt install linux-source=4.19+105+deb10u7 build-essential qtbase5-dev
 ```
 
-2. Descomprimir las fuentes en un directorio 'seguro' como usuario.
+## 2. Descomprimir las fuentes en un directorio 'seguro' como usuario.
 
 ```sh
 mkdir /home/celiagm/compilar_kernel
@@ -67,14 +67,14 @@ cd /home/celiagm/compilar_kernel/
 tar -xf linux-source-4.19.tar.xz 
 ```
 
-Vemos el tamaño
+* Vemos el tamaño
 
 ```sh
 celiagm@debian:~/compilar_kernel$ du -hs linux-source-4.19
 910M	linux-source-4.19
 
 ```
-Vemos el contenido de nuestras fuentes
+* Vemos el **contenido** de nuestras fuentes
 
 ```sh
 celiagm@debian:~/compilar_kernel$ cd linux-source-4.19/
@@ -84,33 +84,34 @@ block  CREDITS  drivers        include  Kbuild   lib       Makefile     README  
 certs  crypto   firmware       init     Kconfig  LICENSES  mm           samples  sound     virt
 ```
 
-Para ver la ayuda de make
+* Para ver la **ayuda** de make
 
 ```sh
 make help
 ```
 
 
-3. Copiar la configuración del kernel que tenemos actualmente en nuestro sistema para que 'make oldconfig' le indique esa configuración a nuestro kernel nuevo.
+## 3. Copiar la configuración del kernel que tenemos actualmente en nuestro sistema para que 'make oldconfig' le indique esa configuración a nuestro kernel nuevo.
 
-Esta es la opción que nos muestra la ayuda
+* Esta es la opción que nos muestra la ayuda
+
 ```sh
  oldconfig	  - Update current config utilising a provided .config as base
 ```
 
-Ahora copiamos el fichero 'config' a nuestro directorio
+* Ahora copiamos el fichero de configuración que tenemos inicialmente en nuestro kernel a nuestro directorio
 
 ```sh 
 cp /boot/config-4.19.0-12-amd64 .config
 ```
 
-Ejecutamos **make oldconfig**
+* Ejecutamos **make oldconfig**
 
 ```sh
 make oldconfig
 ```
 
-Miramos el número de elementos que se van a compilar como modulos y estaticamente.
+* Miramos el número de elementos que se van a compilar como modulos y estaticamente.
 
 Modulos:
 
@@ -131,12 +132,12 @@ celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=y" .config|wc -l
 2013
 ```
 
-4. Selección y reducción de elementos de parte de **localmodconfig** que modifica el fichero .config
+## 4. Selección y reducción de elementos de parte de **localmodconfig** que modifica el fichero .config
 
 ```sh
 make localmodconfig
 ```
-Vemos que se ha reducido sifgnificativamente.
+* Vemos que se ha reducido sifgnificativamente.
 
 ```sh
 celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=m" .config|wc -l
@@ -145,22 +146,22 @@ celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=y" .config|wc -l
 1449
 ```
 
-5. Realizamos la primera compilación (indicandole el numero de nucleos que vayamos a utilizar para agilizar el proceso)
+## 5. Realizamos la primera compilación (indicandole el numero de nucleos que vayamos a utilizar para agilizar el proceso)
 
-Nos aseguramos que tenemos estos paquetes instalados:
+* Nos aseguramos que tenemos estos paquetes instalados antes de proceder con la compilación:
 
 ```sh
 libelf-devel
 libssl-dev
 pkg-config
 ```
-Procedemos a la compilación
+* Procedemos a la compilación. Con la opción **-j** le pasamos como parámetro el número de núcleos que queremos que utilice nuestro pc.
 
 ```sh
 make -j 4 bindeb-pkg
 ```
 
-6. Comprobar el peso del fichero deb, en el directorio padre que es donde se han generado los ficheros deb
+## 6. Comprobar el peso del fichero deb, en el directorio padre que es donde se han generado los ficheros deb
 
 ```sh
 celiagm@debian:~/compilar_kernel$ du -hs linux-image-4.19.152_4.19.152-1_amd64.deb 
@@ -168,24 +169,25 @@ celiagm@debian:~/compilar_kernel$ du -hs linux-image-4.19.152_4.19.152-1_amd64.d
 
 ```
 
-7. Instalarlo y comprobar funcionamiento
+## 7. Instalarlo y comprobar funcionamiento
 
-Ver los kernels instalados
+* Ver los kernel instalados
 
 ```sh
 dpkg -l | grep linux-image
 ```
 
-Desinstalar el kernel que **no funciona** cuando sea necesario:
+* Desinstalar el kernel que **no funciona** cuando sea necesario:
 
 ```sh
 apt-get remove --purge linux-image-X.X.X-X
 ```
+* Instalar el 'nuevo' kernel
 
 ```sh
 sudo dpkg -i linux-image-4.19.152_4.19.152-1_amd64.deb 
 ```
-Vemos que funciona correctamente.
+* Vemos que funciona correctamente.
 
 ```sh
 celiagm@debian:~$ uname -r
@@ -193,14 +195,15 @@ celiagm@debian:~$ uname -r
 
 ```
 
-8. Reducir elementos. Con el siguiente comando se nos abre una ventana y podemos elegir los módulos o elementos que queremos quitar.
+## 8. Reducir elementos. 
 
+* Con el siguiente comando se nos abre una ventana y podemos elegir los módulos o elementos que queremos quitar.
 
 ```sh
 make xconfig
 ```
 
-1º REDUCCIÓN
+#### 1º REDUCCIÓN
 
 ```sh
 RF switch subsystem support (RFKILL): soporte para interruptor de tarjetas wifi y bluetooh
@@ -219,6 +222,10 @@ Virtualization (VIRTUALIZATION)
 ```
 Numero de elementos:
 ```sh
+celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=m" .config|wc -l
+135
+celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=y" .config|wc -l
+1315
 ```
 
 Tamaño conseguido:
