@@ -278,3 +278,30 @@ celiagm@debian:~/compilar_kernel$ du -hs linux-image-4.19.152_4.19.152-2_amd64.d
 8,1M	linux-image-4.19.152_4.19.152-2_amd64.deb
 
 ```
+
+#### 3º REDUCCIÓN
+
+```sh
+Support for paging of anonymous memory (swap) (SWAP)
+Enable the block layer (BLOCK)
+Namespaces support (NAMESPACES)
+Extended Error Log support (ACPI_EXTLOG)
+Support for PCI Hotplug (HOTPLUG_PCI)
+ACPI Platform Error Interface (APEI) (ACPI_APEI)
+/dev/agpgart (AGP Support) (AGP)
+ACPI (Advanced Configuration and Power Interface) Support (ACPI)
+```
+Numero de elementos:
+
+```sh
+celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=m" .config|wc -l
+102
+celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=y" .config|wc -l
+1016
+```
+Tamaño conseguido:
+```sh
+celiagm@debian:~/compilar_kernel$ du -hs linux-image-4.19.152_4.19.152-3_amd64.deb 
+6,6M	linux-image-4.19.152_4.19.152-3_amd64.deb
+
+```
