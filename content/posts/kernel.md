@@ -239,3 +239,42 @@ celiagm@debian:~/compilar_kernel$ du -hs linux-image-4.19.152_4.19.152-1_amd64.d
 
 ```
 
+#### 2º REDUCCIÓN
+
+```sh
+DMA memory allocation support (ZONE_DMA)
+Symmetric multi-processing support (SMP)
+Memtest (MEMTEST)
+Enable DMI scanning (DMI)
+Platform support for Chrome hardware (CHROME_PLATFORMS)
+IBM Calgary IOMMU support (CALGARY_IOMMU)
+Enable support for 16-bit segments (X86_16BIT)
+Allow for memory hot-add (MEMORY_HOTPLUG)
+Track memory changes (MEM_SOFT_DIRTY)
+x86 architectural random number generator
+Supervisor Mode Access Prevention (X86_SMAP)
+The IPv6 protocol (IPV6)
+Battery (ACPI_BATTERY)
+AMD MCE features (X86_MCE_AMD)
+IP: multicast routing (IP_MROUTE)
+LED Support (NEW_LEDS)
+Accessibility support (ACCESSIBILITY)
+Virtualization drivers (VIRT_DRIVERS)
+Staging drivers (STAGING)
+Network File Systems (NETWORK_FILESYSTEMS)
+
+```
+Numero de elementos:
+```sh
+celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=m" .config|wc -l
+128
+celiagm@debian:~/compilar_kernel/linux-source-4.19$ grep "=y" .config|wc -l
+1197
+
+```
+Tamaño conseguido:
+```sh
+celiagm@debian:~/compilar_kernel$ du -hs linux-image-4.19.152_4.19.152-2_amd64.deb 
+8,1M	linux-image-4.19.152_4.19.152-2_amd64.deb
+
+```
