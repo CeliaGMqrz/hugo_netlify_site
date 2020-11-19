@@ -476,7 +476,9 @@ ________________________________________________________________________________
 
 * **Recibe como respuesta un certificado X.509 para el servidor firmado y el certificado de la autoridad certificadora.**
 
-Recibimos el certificado firmado por la autoridad certificador</pre>
+Recibimos el certificado firmado por la autoridad certificadora
+
+```powershell
 root@debian-https:~/ca/csr# ls
 celia.iesgn.org.csr  celia.iesgn.org.csr.pem  jonathan.iesgn.org.csr
 ```
@@ -507,7 +509,7 @@ celia.iesgn.org.csr  celia.iesgn.org.csr.pem  jonathan.iesgn.org.csr
 </VirtualHost>
 
 ```
-Hay que habilitar el modulo de ssl
+Hay que habilitar el **modulo de ssl**
 
 ```powershell
 a2enmod ssl
