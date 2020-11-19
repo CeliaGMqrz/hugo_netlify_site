@@ -196,6 +196,8 @@ sed -i 's|xxxsubjectAltNamexxx =|subjectAltName = ${ENV::SAN}|g' openssl.conf
 
 #### Creamos la clave y certificado de la autoridad de certificación
 
+Crear clave:
+
 ```powershell
 openssl genrsa -aes256 -out private/ca.key.pem 4096
 chmod 400 private/ca.key.pem
@@ -449,11 +451,11 @@ Y el fichero generado se lo enviamos al compañero: **joni.firmado.csr.pem**
 
 Debemos aportar los datos requeridos que son:
 
-<pre>
+```powershell
 countryName_default
 stateOrProvinceName_default
 organizationName_default
-</pre>
+```
 
 Estos están configurados en el fichero openssl.conf con '**match**'
 
@@ -461,7 +463,7 @@ ________________________________________________________________________________
 
 ## PARTE 2
 
-### El alumno que hace de administrador del servidor web, debe entregar una documentación que describa los siguientes puntos:
+### El alumno que hace de administrador del servidor web, debe entre</pre>gar una documentación que describa los siguientes puntos:
 
 Estos puntos que vienen a continuación los hemos realizado con la creación de la autoridad certificadora:
 
@@ -474,9 +476,7 @@ ________________________________________________________________________________
 
 * **Recibe como respuesta un certificado X.509 para el servidor firmado y el certificado de la autoridad certificadora.**
 
-Recibimos el certificado firmado por la autoridad certificadora de nuestro compañero **celia.iesgn.org.csr.pem**
-
-```powershell
+Recibimos el certificado firmado por la autoridad certificador</pre>
 root@debian-https:~/ca/csr# ls
 celia.iesgn.org.csr  celia.iesgn.org.csr.pem  jonathan.iesgn.org.csr
 ```
