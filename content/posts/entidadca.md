@@ -523,6 +523,6 @@ Vamos a nuestro navegador y accedemos a https://celiagarcia.iesgn.org
 
 Comprobamos que podemos acceder, nos notificará que no es una conexión segura ya que no se conoce la entidad certificadora pero añadimos una excepción. Y vemos el certificado en el que aparece la firma de la entidad certificadora de nuestro compañero.
 
-* ![https1.png]()
-* ![https2.png]()
-* ![https3.png]()
+* ![https1.png](/images/ca/https1.png)
+* ![https2.png](/images/ca/https2.png)
+* ![https3.png](/images/ca/https3.png)
