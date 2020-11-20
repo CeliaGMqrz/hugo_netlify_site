@@ -43,7 +43,7 @@ Escenario gráfico:
 
 ## 3. Configuración de NAT en Dulcinea 
 
-(Es necesario deshabilitar la seguridad en todos los puertos de dulcinea) [[https://youtu.be/jqfILWzHrS0]]
+### 3.0. Deshabilitar la seguidad de puertos
 
 Guía para: [Instalar Openstackclient y deshabilitar la seguridad de puertos](https://unbitdeinformacioncadadia.netlify.app/posts/2020/11/instalar-openstackclient-y-deshabilitar-la-seguridad-de-puertos/)
 
