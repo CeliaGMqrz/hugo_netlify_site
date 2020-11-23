@@ -168,11 +168,11 @@ network:
         ens3:
              addresses: [10.0.1.11/24]
              gateway4: 10.0.1.6
-             dhcp4: false
-             match:
-                macaddress: fa:16:3e:cd:4d:70
-             mtu: 8950
-             set-name: ens3
+#             dhcp4: false
+#             match:
+#                macaddress: fa:16:3e:cd:4d:70
+#             mtu: 8950
+#             set-name: ens3  
 
 ```
 
@@ -226,19 +226,16 @@ vi /etc/sysconfig/network-scripts/ifcfg-eth0
 BOOTPROTO="static"
 IPADDR="10.0.1.13"
 GATEWAY="10.0.1.6"
+NETMASK="255.255.255.0"
 DEVICE=eth0
 HWADDR=fa:16:3e:f7:be:35
 MTU=8950
 ONBOOT=yes
 TYPE=Ethernet
 USERCTL=no
-~                                                                                                        
-~                                                                                                        
-~                                                                                                        
-~                                                                                                        
-~                                                                                                        
-~                                                                                                        
-"/etc/sysconfig/network-scripts/ifcfg-eth0" 11L, 210C
+~                                                                                                                                                                                      
+"/etc/sysconfig/network-scripts/ifcfg-eth0" 12L, 234C
+
 
 ```
 
@@ -270,4 +267,209 @@ PING 172.22.0.1 (172.22.0.1) 56(84) bytes of data.
 rtt min/avg/max/mdev = 1.364/1.432/1.500/0.068 ms
 
 ```
+## 6. Modificación de la subred de la red interna, deshabilitando el servidor DHCP
 
+Vamos a la pataforma del cloud, en Networks >> (Seleccionamos la interfaz interna) celia.garcia >> Subnets >> Edit Subnet >> Next >> (Deshabilitamos el DCHP) Enable DCHP
+
+![disable_dhcp.jpeg](/images/escenario/disable_dhcp.jpeg)
+
+Una vez deshabilitado vamos a **Sancho**:
+
+```powershell
+ip a del 10.0.1.11/24 dev ens3
+```
+
+Intentamos hacer una petición al DCHP
+
+```powershell
+dhclient ens3
+```
+
+No obtenemos respuesta por lo que está correctamente deshabilitado. 
+
+Ahora vamos a reiniciar el servicio de red
+
+```powershell
+netplan apply
+```
+
+Comprobamos que tenemos de nuevo nuestra configuración estática:
+
+```powershell
+root@sancho:/home/ubuntu# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+3: ens3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 8950 qdisc fq_codel state UP group default qlen 1000
+    link/ether fa:16:3e:f2:65:68 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.1.11/24 brd 10.0.1.255 scope global ens3
+       valid_lft forever preferred_lft forever
+    inet6 fe80::f816:3eff:fef2:6568/64 scope link 
+       valid_lft forever preferred_lft forever
+
+```
+
+```powershell
+root@sancho:/home/ubuntu# ip r
+default via 10.0.1.6 dev ens3 proto static 
+10.0.1.0/24 dev ens3 proto kernel scope link src 10.0.1.11 
+
+```
+
+Hacemos el mismo procedimiento con **Quijote**
+
+Comprobamos que no tenemos respuesta por DHCP ya que lo hemos deshabilitado
+
+Comprobamos que al reiniciar nuestro servicio de red configurado estaticamente tenemos acceso al exterior
+
+```powershell
+[root@quijote centos]# ping 172.22.0.1
+PING 172.22.0.1 (172.22.0.1) 56(84) bytes of data.
+64 bytes from 172.22.0.1: icmp_seq=1 ttl=62 time=1.44 ms
+64 bytes from 172.22.0.1: icmp_seq=2 ttl=62 time=1.99 ms
+^C
+--- 172.22.0.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 1.440/1.718/1.996/0.278 ms
+
+```
+
+## 7. Utilización de ssh-agent para acceder a las instancias
+
+#### 7.0. Conceptos previos
+
+El **agente ssh**, es un programa auxiliar que realiza un seguimiento de las claves de identidad del usuario y sus contraseñas. Permite usar las claves para iniciar sesión en otros servidores sin que el usuario escriba una contraseña o frase de contraseña. Esto implementa una forma de inicio de sesión único. 
+
+#### 7.1. Iniciar ssh-agent
+
+Normalmente no se inicia automáticamente al inciar el servidor por lo que tenemos que ejecutarlo manualmente
+
+```powershell
+ssh-agent
+```
+
+Salida:
+
+```powershell
+SSH_AUTH_SOCK=/tmp/ssh-wMUFa5ft1Ae2/agent.13399; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=13400; export SSH_AGENT_PID;
+echo Agent pid 13400;
+```
+
+Verificamos el valor de la variable que esté configurada
+
+```powershell
+debian@dulcinea:~$ echo $SSH_AUTH_SOCK
+/tmp/ssh-P9bFFkcDoMSo/agent.13396
+```
+#### 7.2. Agregar las claves y comprobar funcionamiento
+
+Agregamos las claves que tenemos en el fichero .ssh, si no le indicamos ruta agregará todas las que se encuentren dentro de .ssh
+
+```powershell
+ssh-add
+```
+```powershell
+debian@dulcinea:~$ ssh-add
+Identity added: /home/debian/.ssh/id_rsa (celiagm@debian)
+```
+
+Otras opciones de utilidad
+
+```powershell
+# Listar las claves privadas
+ssh-add -l
+# Listar las claves públicas
+ssh-add -L
+# Eliminar las claves utilizadas por el agente
+ssh-add -D
+```
+
+Ahora ya podemos entrar directamente a Sancho y a Quijote sin especificar la clave
+
+**SANCHO:**
+```powershell
+debian@dulcinea:~$ ssh ubuntu@10.0.1.11
+Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-48-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Nov 23 19:45:13 UTC 2020
+
+  System load:  0.01              Processes:             103
+  Usage of /:   13.1% of 9.52GB   Users logged in:       2
+  Memory usage: 40%               IPv4 address for ens3: 10.0.1.11
+  Swap usage:   0%
+
+
+1 update can be installed immediately.
+0 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+Last login: Mon Nov 23 15:59:15 2020 from 10.0.1.6
+ubuntu@sancho:~$ 
+
+```
+**CENTOS:**
+
+```powershell
+debian@dulcinea:~$ ssh centos@10.0.1.13
+Last login: Mon Nov 23 15:59:55 2020 from host-10-0-1-6.openstacklocal
+[centos@quijote ~]$ 
+
+```
+
+## 8. Creación del usuario profesor en todas las instancias. Usuario que puede utilizar sudo sin contraseña.
+
+* Dulcinea
+
+Creamos el usuario profesor y lo añadimos al grupo sudo:
+
+```powershell
+adduser profesor
+adduser profesor sudo
+
+```
+Editamos el fichero 'sudoers' e indicamos que el usuario no precise de contraseña al usar sudo
+
+```powershell
+nano /etc/sudoers
+```
+
+```powershell
+profesor ALL=(ALL) NOPASSWD:ALL
+```
+
+* Sancho (Ponemos la misma configuración en *sudoers*)
+
+```powershell
+useradd profesor
+usermod profesor -g sudo
+passwd profesor
+nano /etc/sudoers
+```
+
+* Quijote
+
+```powershell
+adduser profesor
+passwd profesor
+usermod -aG wheel profesor
+```
+
+## 9. Copia de las claves públicas de todos los profesores en las instancias para que puedan acceder con el usuario profesor
+
+hecho.
+
+## 10. Realiza una actualización completa de todos los servidores
