@@ -73,15 +73,16 @@ $ openstack server list
 ``` 
 ```powershell
 
-+--------------------------------------+----------------+--------+-----------------------------------------------------------------------+--------------------------------+---------+
-| ID                                   | Name           | Status | Networks                                                              | Image                          | Flavor  |
-+--------------------------------------+----------------+--------+-----------------------------------------------------------------------+--------------------------------+---------+
-| be4e0478-8b93-4346-a4ab-64edfe3bfb37 | Dulcinea       | ACTIVE | celia.garcia=10.0.1.14; red de celia.garcia=10.0.0.11, 172.22.200.150 | Debian Buster 10.6             | m1.mini |
-| e23fc109-de1b-4bdf-8b88-cf7b2721350c | Quijote        | ACTIVE | celia.garcia=10.0.1.13                                                | CentOS 7                       | m1.mini |
-| 26e2f672-2408-40d8-bcec-752059db35fa | Sancho         | ACTIVE | celia.garcia=10.0.1.10                                                | Ubuntu 20.04 LTS (focal fossa) | m1.mini |
-| a460fd00-f4d7-4999-bc05-a42f54e3dd56 | cliente_nginx  | ACTIVE | red de celia.garcia=10.0.0.6, 172.22.200.148                          | Debian Buster 10.6             | m1.mini |
-| d88962ae-4617-4fe3-be33-c1bbfe686c69 | servidor_nginx | ACTIVE | red de celia.garcia=10.0.0.5, 172.22.200.152                          | Debian Buster 10.6             | m1.mini |
-+--------------------------------------+----------------+--------+-----------------------------------------------------------------------+--------------------------------+---------+
+(entorno) celiagm@debian:~/venv/entorno$ openstack server list
++--------------------------------------+----------------+--------+---------------------------------------------------------------------+--------------------------------+---------+
+| ID                                   | Name           | Status | Networks                                                            | Image                          | Flavor  |
++--------------------------------------+----------------+--------+---------------------------------------------------------------------+--------------------------------+---------+
+| c39a7cc7-f485-4617-a62f-acdd39a19682 | Dulcinea       | ACTIVE | celia.garcia=10.0.1.6; red de celia.garcia=10.0.0.3, 172.22.200.222 | Debian Buster 10.6             | m1.mini |
+| e23fc109-de1b-4bdf-8b88-cf7b2721350c | Quijote        | ACTIVE | celia.garcia=10.0.1.13                                              | CentOS 7                       | m1.mini |
+| 26e2f672-2408-40d8-bcec-752059db35fa | Sancho         | ACTIVE | celia.garcia=10.0.1.11                                              | Ubuntu 20.04 LTS (focal fossa) | m1.mini |
+| a460fd00-f4d7-4999-bc05-a42f54e3dd56 | cliente_nginx  | ACTIVE | red de celia.garcia=10.0.0.6, 172.22.200.148                        | Debian Buster 10.6             | m1.mini |
+| d88962ae-4617-4fe3-be33-c1bbfe686c69 | servidor_nginx | ACTIVE | red de celia.garcia=10.0.0.5, 172.22.200.152                        | Debian Buster 10.6             | m1.mini |
++--------------------------------------+----------------+--------+---------------------------------------------------------------------+--------------------------------+---------+
 
 ```
 
@@ -98,7 +99,7 @@ $ openstack network list
 | 21124241-dddf-4c06-b646-eb15ed5cd84a | celia.garcia        | 46e30aa0-10de-4883-a8c7-707b5a884eec                                       |
 | 49812d85-8e7a-4c31-baa2-d427692f6568 | ext-net             | 158bbe3e-3c98-485e-8042-ba6402111ea6, 6218710b-aa05-46f7-b198-7639efe3da95 |
 | 90c37b05-bd26-49a3-b797-c6038b49a169 | red de celia.garcia | 029d2907-1315-41f3-af12-c1285ceb43d2                                       |
-+--------------------------------------+----
+
 ```
 
 * Listar los puertos
@@ -112,16 +113,17 @@ $ openstack port list
 +--------------------------------------+------+-------------------+--------------------------------------------------------------------------+--------+
 | ID                                   | Name | MAC Address       | Fixed IP Addresses                                                       | Status |
 +--------------------------------------+------+-------------------+--------------------------------------------------------------------------+--------+
-| 4046288e-9357-4539-b66a-b4ccc7476747 |      | fa:16:3e:cd:4d:70 | ip_address='10.0.1.10', subnet_id='46e30aa0-10de-4883-a8c7-707b5a884eec' | ACTIVE |
-| 575c3cc4-eb49-4b6f-af62-e9e5b81fa2f4 |      | fa:16:3e:f0:82:5d | ip_address='10.0.0.11', subnet_id='029d2907-1315-41f3-af12-c1285ceb43d2' | ACTIVE |
 | 73876736-71bc-4bfc-b240-e2bb0f1ca505 |      | fa:16:3e:f7:be:35 | ip_address='10.0.1.13', subnet_id='46e30aa0-10de-4883-a8c7-707b5a884eec' | ACTIVE |
+| 85b0d349-4240-4ea5-b277-fbd2bef00928 |      | fa:16:3e:77:40:7a | ip_address='10.0.0.3', subnet_id='029d2907-1315-41f3-af12-c1285ceb43d2'  | ACTIVE |
 | a9bdd25d-cd44-44e1-96f3-fb5228872245 |      | fa:16:3e:04:0d:c4 | ip_address='10.0.0.1', subnet_id='029d2907-1315-41f3-af12-c1285ceb43d2'  | ACTIVE |
 | b20a13b0-107c-44e1-91ad-b05c4c4ab6fb |      | fa:16:3e:eb:33:51 | ip_address='10.0.0.2', subnet_id='029d2907-1315-41f3-af12-c1285ceb43d2'  | ACTIVE |
 | d6d4a998-73e9-4bc0-9ad1-57b481c146c5 |      | fa:16:3e:08:7a:18 | ip_address='10.0.0.6', subnet_id='029d2907-1315-41f3-af12-c1285ceb43d2'  | ACTIVE |
 | d87620fe-c4e4-47e1-9381-ee47211795e3 |      | fa:16:3e:e8:a3:f7 | ip_address='10.0.1.2', subnet_id='46e30aa0-10de-4883-a8c7-707b5a884eec'  | ACTIVE |
 | dac3549b-9fb3-488d-b399-ed7ee94ea724 |      | fa:16:3e:9a:c0:6a | ip_address='10.0.0.5', subnet_id='029d2907-1315-41f3-af12-c1285ceb43d2'  | ACTIVE |
-| fe24ece0-28d6-450a-9ff9-bdcea107a58f |      | fa:16:3e:25:93:49 | ip_address='10.0.1.14', subnet_id='46e30aa0-10de-4883-a8c7-707b5a884eec' | ACTIVE |
+| e99aaf3f-c607-4d1d-9e05-fec50b132296 |      | fa:16:3e:f2:65:68 | ip_address='10.0.1.11', subnet_id='46e30aa0-10de-4883-a8c7-707b5a884eec' | ACTIVE |
+| fa58e181-e88f-4453-8f20-c4bd7d190179 |      | fa:16:3e:e0:bc:db | ip_address='10.0.1.6', subnet_id='46e30aa0-10de-4883-a8c7-707b5a884eec'  | ACTIVE |
 +--------------------------------------+------+-------------------+--------------------------------------------------------------------------+--------+
+
 
 ```
 ______________________________________________________________________
@@ -136,36 +138,35 @@ $ openstack server show Dulcinea
 
 ```powershell
 (entorno) celiagm@debian:~/venv/entorno$ openstack server show Dulcinea
-+-----------------------------+-----------------------------------------------------------------------+
-| Field                       | Value                                                                 |
-+-----------------------------+-----------------------------------------------------------------------+
-| OS-DCF:diskConfig           | AUTO                                                                  |
-| OS-EXT-AZ:availability_zone | nova                                                                  |
-| OS-EXT-STS:power_state      | Running                                                               |
-| OS-EXT-STS:task_state       | None                                                                  |
-| OS-EXT-STS:vm_state         | active                                                                |
-| OS-SRV-USG:launched_at      | 2020-11-18T20:41:11.000000                                            |
-| OS-SRV-USG:terminated_at    | None                                                                  |
-| accessIPv4                  |                                                                       |
-| accessIPv6                  |                                                                       |
-| addresses                   | celia.garcia=10.0.1.14; red de celia.garcia=10.0.0.11, 172.22.200.150 |
-| config_drive                |                                                                       |
-| created                     | 2020-11-18T20:40:50Z                                                  |
-| flavor                      | m1.mini (12)                                                          |
-| hostId                      | 829ef6cbc520f728c22007cd80702af381d72417f6ce13fbdcbf53e5              |
-| id                          | be4e0478-8b93-4346-a4ab-64edfe3bfb37                                  |
-| image                       | Debian Buster 10.6 (51b38ecf-99e1-46a3-a497-9e1cc9c3c2d4)             |
-| key_name                    | msi                                                                   |
-| name                        | Dulcinea                                                              |
-| progress                    | 0                                                                     |
-| project_id                  | bf33696e5463476b95e310dd1e17f5f3                                      |
-| properties                  |                                                                       |
-| status                      | ACTIVE                                                                |
-| updated                     | 2020-11-18T20:41:12Z                                                  |
-| user_id                     | bdfca7c57468ff40b7445535735bf867c444239818b740f4f59474b105c27dec      |
-| volumes_attached            |                                                                       |
-+-----------------------------+-----------------------------------------------------------------------+
-
++-----------------------------+---------------------------------------------------------------------+
+| Field                       | Value                                                               |
++-----------------------------+---------------------------------------------------------------------+
+| OS-DCF:diskConfig           | AUTO                                                                |
+| OS-EXT-AZ:availability_zone | nova                                                                |
+| OS-EXT-STS:power_state      | Running                                                             |
+| OS-EXT-STS:task_state       | None                                                                |
+| OS-EXT-STS:vm_state         | active                                                              |
+| OS-SRV-USG:launched_at      | 2020-11-19T20:28:18.000000                                          |
+| OS-SRV-USG:terminated_at    | None                                                                |
+| accessIPv4                  |                                                                     |
+| accessIPv6                  |                                                                     |
+| addresses                   | celia.garcia=10.0.1.6; red de celia.garcia=10.0.0.3, 172.22.200.222 |
+| config_drive                |                                                                     |
+| created                     | 2020-11-19T20:27:57Z                                                |
+| flavor                      | m1.mini (12)                                                        |
+| hostId                      | 829ef6cbc520f728c22007cd80702af381d72417f6ce13fbdcbf53e5            |
+| id                          | c39a7cc7-f485-4617-a62f-acdd39a19682                                |
+| image                       | Debian Buster 10.6 (51b38ecf-99e1-46a3-a497-9e1cc9c3c2d4)           |
+| key_name                    | msi                                                                 |
+| name                        | Dulcinea                                                            |
+| progress                    | 0                                                                   |
+| project_id                  | bf33696e5463476b95e310dd1e17f5f3                                    |
+| properties                  |                                                                     |
+| status                      | ACTIVE                                                              |
+| updated                     | 2020-11-23T12:04:44Z                                                |
+| user_id                     | bdfca7c57468ff40b7445535735bf867c444239818b740f4f59474b105c27dec    |
+| volumes_attached            |                                                                     |
++-----------------------------+---------------------------------------------------------------------+
 
 ```
 
@@ -178,31 +179,30 @@ openstack server remove security group Dulcinea default
 
 * Listamos los puertos y obtenemos el identificador de la máquina según la ip 
 
-* Le quitamos la seguridad
+* Le quitamos la seguridad de puertos tanto de la red interna como de la red externa.
 
 ```powershell
-openstack port set --disable-port-security 575c3cc4-eb49-4b6f-af62-e9e5b81fa2f4
+openstack port set --disable-port-security fa58e181-e88f-4453-8f20-c4bd7d190179
+openstack port set --disable-port-security 85b0d349-4240-4ea5-b277-fbd2bef00928
 ```
 
 * Ahora comprobamos la conexión y vemos que es correcta:
 
 ```powershell
-(entorno) celiagm@debian:~/venv/entorno$ ping 172.22.200.150
-PING 172.22.200.150 (172.22.200.150) 56(84) bytes of data.
-64 bytes from 172.22.200.150: icmp_seq=1 ttl=61 time=236 ms
-64 bytes from 172.22.200.150: icmp_seq=2 ttl=61 time=80.0 ms
-64 bytes from 172.22.200.150: icmp_seq=3 ttl=61 time=135 ms
+(entorno) celiagm@debian:~/venv/entorno$ ping 172.22.200.222
+PING 172.22.200.222 (172.22.200.222) 56(84) bytes of data.
+64 bytes from 172.22.200.222: icmp_seq=1 ttl=61 time=71.1 ms
+64 bytes from 172.22.200.222: icmp_seq=2 ttl=61 time=70.1 ms
+64 bytes from 172.22.200.222: icmp_seq=3 ttl=61 time=95.5 ms
 ^C
---- 172.22.200.150 ping statistics ---
+--- 172.22.200.222 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 4ms
-rtt min/avg/max/mdev = 80.015/150.447/235.918/64.529 ms
-
+rtt min/avg/max/mdev = 70.115/78.910/95.549/11.771 ms
 ```
 
 ```powershell
-(entorno) celiagm@debian:~/venv/entorno$ ssh -i .ssh/id_rsa debian@172.22.200.150
-Warning: Identity file .ssh/id_rsa not accessible: No such file or directory.
-Linux dulcinea 4.19.0-11-cloud-amd64 #1 SMP Debian 4.19.146-1 (2020-09-17) x86_64
+(entorno) celiagm@debian:~/venv/entorno$ ssh debian@172.22.200.222
+Linux dulcinea 4.19.0-12-cloud-amd64 #1 SMP Debian 4.19.152-1 (2020-10-18) x86_64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -210,7 +210,7 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-Last login: Wed Nov 18 20:42:15 2020 from 172.23.0.70
-debian@dulcinea:~$ exit
+Last login: Mon Nov 23 15:59:42 2020 from 172.23.0.70
+debian@dulcinea:~$ 
 
 ```
