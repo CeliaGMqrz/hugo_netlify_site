@@ -473,3 +473,140 @@ usermod -aG wheel profesor
 hecho.
 
 ## 10. Realiza una actualización completa de todos los servidores
+
+**Dulcinea(Debian 10)**
+
+Repositorios de Dulcinea
+
+```powershell
+deb http://deb.debian.org/debian/ buster main
+#deb-src http://deb.debian.org/debian/ buster main
+deb http://deb.debian.org/debian/ buster-updates main
+#deb-src http://deb.debian.org/debian/ buster-updates main
+deb http://security.debian.org/ buster/updates main
+#deb-src http://security.debian.org/debian-security buster/updates main
+
+```
+Actualizamos
+
+```powershell
+apt update
+apt list --upgradable
+apt upgrade
+```
+
+**Sancho (Ubuntu 20)**
+
+Repositorios de Sancho
+
+```powershell
+
+
+```
+Debemos asegurarnos que tenemos resolución de nombres
+
+Fichero /etc/resolv
+
+```powershell
+nameserver 192.168.202.2
+```
+Actualizamos
+
+```powershell
+apt update
+apt upgrade
+```
+
+**Quijote (Centos7)**
+
+
+Los repositorios de centos se ubican en :
+
+```powershell
+[centos@quijote ~]$ ls -l /etc/yum.repos.d/
+total 36
+-rw-r--r--. 1 root root 1664 Apr  7  2020 CentOS-Base.repo
+-rw-r--r--. 1 root root 1309 Apr  7  2020 CentOS-CR.repo
+-rw-r--r--. 1 root root  649 Apr  7  2020 CentOS-Debuginfo.repo
+-rw-r--r--. 1 root root  314 Apr  7  2020 CentOS-fasttrack.repo
+-rw-r--r--. 1 root root  630 Apr  7  2020 CentOS-Media.repo
+-rw-r--r--. 1 root root 1331 Apr  7  2020 CentOS-Sources.repo
+-rw-r--r--. 1 root root 7577 Apr  7  2020 CentOS-Vault.repo
+-rw-r--r--. 1 root root  616 Apr  7  2020 CentOS-x86_64-kernel.repo
+
+```
+
+Actualizamos
+
+```powershell
+yum update
+```
+
+## 12. Hasta que no esté configurado el servidor DNS, incluye resolución estática en las tres instancias tanto usando nombre completo como hostname
+
+**Dulcinea**
+
+```powershell
+127.0.1.1 dulcinea.novalocal dulcinea
+127.0.0.1 localhost
+10.0.1.13 quijote.novalocal quijote
+10.0.1.11 sancho.novalocal sancho
+```
+
+**Sancho**
+
+```powershell
+127.0.0.1 localhost
+127.0.1.1 sancho.novalocal sancho
+10.0.1.6 dulcinea.novalocal dulcinea
+10.0.1.13 quijote.novalocal quijote
+```
+
+**Quijote**
+
+```powershell
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+127.0.0.1   localhost quijote.novalocal quijote
+10.0.1.6    dulcinea.novalocal dulcinea
+10.0.1.11   sancho.novalocal sancho
+```
+
+
+## 13. Asegúrate que el servidor tiene sincronizado su reloj utilizando un servidor NTP externo
+
+**Dulcinea** 
+
+Listamos las zonas 
+
+```powershell
+timedatectl list-timezones
+```
+Cambiamos la zona 
+
+```powershell
+timedatectl set-timezone Europe/Madrid
+```
+Comprobamos la hora
+
+```powershell
+root@dulcinea:/home/debian# date
+Tue 24 Nov 2020 01:42:16 PM CET
+```
+Se sigue el mismo procedimiento con Sancho y Quijote.
+
+**Sancho**
+
+```powershell
+root@sancho:/home/ubuntu# timedatectl set-timezone Europe/Madrid
+root@sancho:/home/ubuntu# date
+Tue Nov 24 13:46:08 CET 2020
+```
+
+**Quijote**
+
+```powershell
+[root@quijote centos]# timedatectl set-timezone Europe/Madrid
+[root@quijote centos]# date
+Tue Nov 24 13:46:49 CET 2020
+```
