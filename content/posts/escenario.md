@@ -497,12 +497,6 @@ apt upgrade
 
 **Sancho (Ubuntu 20)**
 
-Repositorios de Sancho
-
-```powershell
-
-
-```
 Debemos asegurarnos que tenemos resolución de nombres
 
 Fichero /etc/resolv
