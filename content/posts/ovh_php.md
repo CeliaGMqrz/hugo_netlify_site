@@ -66,7 +66,7 @@ nano /var/www/portal.iesgn05.es/index.html
 * Comprobamos que podemos acceder al sitio
 
 
-![portal.png](/images/ovh_php/portal.png)
+![portal1.png](/images/ovh_php/portal1.png)
 
 
 ### 2. Vamos a nombrar el servicio de base de datos que tenemos en producción. Como es un servicio interno no la vamos a nombrar en la zona DNS, la vamos a nombrar usando resolución estática. El nombre del servicio de base de datos se debe llamar: bd.iesgnXX.es.
