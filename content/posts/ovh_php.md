@@ -60,13 +60,13 @@ nano /var/www/portal.iesgn05.es/index.html
 
 * Necesitaremos otra zona DNS
 
-![/images/ovh_php/cname.png](migracion/capturas/cname.png)
+![cname.png](/images/ovh_php/migracion/capturas/cname.png)
 
 
 * Comprobamos que podemos acceder al sitio
 
 
-![/images/ovh_php/portal.png](migracion/capturas/portal.png)
+![portal.png](/images/ovh_php/migracion/capturas/portal.png)
 
 
 ### 2. Vamos a nombrar el servicio de base de datos que tenemos en producción. Como es un servicio interno no la vamos a nombrar en la zona DNS, la vamos a nombrar usando resolución estática. El nombre del servicio de base de datos se debe llamar: bd.iesgnXX.es.
@@ -300,7 +300,7 @@ systemctl restart nginx
 
 ### 5. Asegurate que las URL limpias de drupal siguen funcionando en nginx.
 
-Siguiendo esta [guía](http://www.kreanto.com/es/blog/configurando-las-url-limpias-drupal-un-servidor-web-nginx):
+Siguiendo esta [guía](/images/ovh_php/http://www.kreanto.com/es/blog/configurando-las-url-limpias-drupal-un-servidor-web-nginx):
 
 Añadimos el sistema de url limipas en Drupal.
 
@@ -347,7 +347,7 @@ server {
 
 Comprobamos el funcionamiento
 
-![/images/ovh_php/funcionamiento1.png](funcionamiento1.png)
+![funcionamiento1.png](/images/ovh_php/funcionamiento1.png)
 
 
 ### 6. La aplicación debe estar disponible en la URL: portal.iesgnXX.es (Sin ningún directorio).
@@ -369,10 +369,10 @@ root@kiara:/var/www/portal.iesgn05.es# systemctl restart nginx
 
 Comprobamos que funciona
 
-* ![/images/ovh_php/funcionamiento2.png](funcionamiento2.png)
+* ![funcionamiento2.png](/images/ovh_php/funcionamiento2.png)
 
 
-* ![/images/ovh_php/func3.png](func3.png)
+* ![func3.png](/images/ovh_php/func3.png)
 
 
 ## Instalación / migración de la aplicación Nextcloud
@@ -450,7 +450,7 @@ systemctl restart mariadb
 
 * Nos salen ciertos errores porque necesitamos instalar varios módulos
 
-![/images/ovh_php/error1.png](error1.png)
+![error1.png](/images/ovh_php/error1.png)
 
 * Los instalamos
 
@@ -460,21 +460,21 @@ apt-get install php-zip php-curl php-intl php-imagick php-xml
 
 * Comprobamos que funciona
 
-![/images/ovh_php/inst_next.png](inst_next.png)
+![inst_next.png](/images/ovh_php/inst_next.png)
 
 ### Instalación de NextCloud
 
 Nos pide que pongamos un usuario y una contraseña. Ademas vamos a indicar el nombre de la base de datos, el nombre del usuario y contraseña que administra la base de datos y el host, en este caso sera localhost.
 
-![/images/ovh_php/datos.png](datos.png)
+![datos.png](/images/ovh_php/datos.png)
 
 Y le damos a 'Finish Setup', así comenzará la instalación
 
-![/images/ovh_php/apps.png](apps.png)
+![apps.png](/images/ovh_php/apps.png)
 
 Comprobamos que ya tenemos nextcloud operativo
 
-![/images/ovh_php/funcionamiento10.png](funcionamiento10.png)
+![funcionamiento10.png](/images/ovh_php/funcionamiento10.png)
 
 ### 2. Realiza la migración al servidor en producción, para que la aplicación sea accesible en la URL: www.iesgnXX.es/cloud
 
@@ -686,10 +686,10 @@ location = /robots.txt {
 
 Comprobamos que funciona
 
-* ![/images/ovh_php/next7.png](next7.png)
+* ![next7.png](/images/ovh_php/next7.png)
 
 
-* ![/images/ovh_php/next8.png](next8.png)
+* ![next8.png](/images/ovh_php/next8.png)
 
 
 ### 3. Instala en un ordenador el cliente de nextcloud y realiza la configuración adecuada para acceder a "tu nube".
@@ -702,7 +702,7 @@ $ sudo apt install nextcloud-desktop
 
 Ejecutamos el software, en este caso como hemos elegido nuestra máquina fisica hemos escogido el entorno gráfico
 
-* ![/images/ovh_php/cliente1.png](cliente1.png)
+* ![cliente1.png](/images/ovh_php/cliente1.png)
 
 Ponemos la dirección del servidor. Nos mostraŕa un mensaje de advertencia porque no es un sitio seguro y le damos a continuar.
 
@@ -711,11 +711,11 @@ Nos pide el usuario y la contraseña, le pasamos las credenciales y continuamos.
 Nos pide configurar las opciones de la carpeta local. Si desea sincronizar carpetas. Y elegir que carpeta vamos a elegir en para la subida y bajada de datos
 
 
-* ![/images/ovh_php/cliente3.png](cliente3.png)
+* ![cliente3.png](/images/ovh_php/cliente3.png)
 
 Vemos que se sincroniza correctamente
 
-* ![/images/ovh_php/cliente4.png](cliente4.png)
+* ![cliente4.png](/images/ovh_php/cliente4.png)
 
 
 Podemos comprobar que se ha sincronizado correctamente.
@@ -739,6 +739,6 @@ touch fichero.txt
 
 Vamos a la dirección de nuestro cloud en el navegador y comprobamos que se ha subido correctamente
 
-* ![/images/ovh_php/fichero.png](fichero.png)
+* ![fichero.png](/images/ovh_php/fichero.png)
 
-* ![/images/ovh_php/fichero1.png](fichero1.png)
+* ![fichero1.png](/images/ovh_php/fichero1.png)
