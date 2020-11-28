@@ -79,10 +79,10 @@ nano /var/www/portal.iesgn05.es/index.html
 
 ### 3. Por lo tanto los recursos que deberás crear en la base de datos serán (respeta los nombres):
 
-Dirección de la base de datos: bd.iesgnXX.es
-Base de datos: bd_drupal
-Usuario: user_drupal
-Password: pass_drupal
+* Dirección de la base de datos: bd.iesgnXX.es
+* Base de datos: bd_drupal
+* Usuario: user_drupal
+* Password: pass_drupal
 
 * Comprobamos que mariadb esta en funcionamiento
 
