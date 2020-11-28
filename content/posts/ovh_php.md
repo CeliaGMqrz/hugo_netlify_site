@@ -60,13 +60,13 @@ nano /var/www/portal.iesgn05.es/index.html
 
 * Necesitaremos otra zona DNS
 
-![cname.png](/images/ovh_php/migracion/capturas/cname.png)
+![cname.png](/images/ovh_php/cname.png)
 
 
 * Comprobamos que podemos acceder al sitio
 
 
-![portal.png](/images/ovh_php/migracion/capturas/portal.png)
+![portal.png](/images/ovh_php/portal.png)
 
 
 ### 2. Vamos a nombrar el servicio de base de datos que tenemos en producción. Como es un servicio interno no la vamos a nombrar en la zona DNS, la vamos a nombrar usando resolución estática. El nombre del servicio de base de datos se debe llamar: bd.iesgnXX.es.
