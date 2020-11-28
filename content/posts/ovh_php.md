@@ -300,7 +300,7 @@ systemctl restart nginx
 
 ### 5. Asegurate que las URL limpias de drupal siguen funcionando en nginx.
 
-Siguiendo esta [guía](/images/ovh_php/http://www.kreanto.com/es/blog/configurando-las-url-limpias-drupal-un-servidor-web-nginx):
+Siguiendo esta [guía](http://www.kreanto.com/es/blog/configurando-las-url-limpias-drupal-un-servidor-web-nginx):
 
 Añadimos el sistema de url limipas en Drupal.
 
