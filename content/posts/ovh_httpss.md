@@ -13,7 +13,7 @@ tags: ['https','Let’s Encrypt','Cerbot']
 
 Vamos a configurar el protocolo HTTPS para el acceso a nuestras aplicaciones, para ello tienes que tener en cuenta los siguiente.
 
-## 1. Vamos a utilizar el servicio https://letsencrypt.org para solicitar los certificados de nuestras páginas.
+## 1. Vamos a utilizar el servicio letsencrypt para solicitar los certificados de nuestras páginas.
 
 Let's Encrypt se trata de una **autoridad de certificación**, conocida como CA, libre y gratuita, que permite generar certificados SSL gratuitos y automáticos para nuestros sitios web, con el objetivo de promover que el tráfico de Internet sea seguro.
 
