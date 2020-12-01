@@ -1,5 +1,5 @@
 ---
-title: "Actualizacion de centos 7 a Centos 8"
+title: "Actualizacion de centos7 a Centos8"
 date: 2020-11-30T20:59:38+01:00
 draft: false
 toc: false
@@ -7,7 +7,7 @@ images:
 tags: ['upgrade centos','centos7','centos8']
 ---
 
-Objetivo:
+### Objetivo:
 
 Actualizar CentOS 7 a CentOS 8 garantizando que todos los servicios previos continúen funcionando:
 _____________________________________________________________
