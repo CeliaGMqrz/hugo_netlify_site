@@ -1,5 +1,5 @@
 ---
-title: "Actualizacion de centos7 a Centos8"
+title: "Actualizacion de Centos7 a Centos8"
 date: 2020-11-30T20:59:38+01:00
 draft: false
 toc: false
