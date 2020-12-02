@@ -229,17 +229,28 @@ GATEWAY="10.0.1.6"
 NETMASK="255.255.255.0"
 DEVICE=eth0
 HWADDR=fa:16:3e:f7:be:35
-MTU=8950
 ONBOOT=yes
+STARTMODE=auto
 TYPE=Ethernet
 USERCTL=no
-~                                                                                                                                                                                      
-"/etc/sysconfig/network-scripts/ifcfg-eth0" 12L, 234C
 
+```
+Desactivamos el cloud-init
 
+Para ello creamos un fichero en /etc/cloud
+
+```powershell
+nano /etc/cloud/cloud-init.disabled
+```
+Le añadimos lo siguiente
+
+```powershell
+cloud-init=disabled
 ```
 
 Reiniamos el servicio
+
+Reiniciamos la máquina
 
 ```powershell
 systemctl restart network.service
@@ -470,7 +481,7 @@ usermod -aG wheel profesor
 
 ## 9. Copia de las claves públicas de todos los profesores en las instancias para que puedan acceder con el usuario profesor
 
-hecho.
+Para ello he copiado las claves públicas al fichero authorized_keys del usuario profesor.
 
 ## 10. Realiza una actualización completa de todos los servidores
 
@@ -538,22 +549,43 @@ yum update
 
 ## 12. Hasta que no esté configurado el servidor DNS, incluye resolución estática en las tres instancias tanto usando nombre completo como hostname
 
+```powershell
+nano /etc/hosts
+```
+
+
 **Dulcinea**
 
 ```powershell
-127.0.1.1 dulcinea.novalocal dulcinea
+127.0.1.1 dulcinea.celia.gonzalonazareno.org dulcinea
 127.0.0.1 localhost
-10.0.1.13 quijote.novalocal quijote
-10.0.1.11 sancho.novalocal sancho
+10.0.1.13 quijote.celia.gonzalonazareno.org quijote
+10.0.1.11 sancho.celia.gonzalonazareno.org sancho
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
 ```
 
 **Sancho**
 
 ```powershell
 127.0.0.1 localhost
-127.0.1.1 sancho.novalocal sancho
-10.0.1.6 dulcinea.novalocal dulcinea
-10.0.1.13 quijote.novalocal quijote
+127.0.1.1 sancho.celia.gonzalonazareno.org sancho
+10.0.1.6 dulcinea.celia.gonzalonazareno.org dulcinea
+10.0.1.13 quijote.celia.gonzalonazareno.org quijote
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
 ```
 
 **Quijote**
@@ -561,9 +593,9 @@ yum update
 ```powershell
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-127.0.0.1   localhost quijote.novalocal quijote
-10.0.1.6    dulcinea.novalocal dulcinea
-10.0.1.11   sancho.novalocal sancho
+127.0.0.1   quijote.celia.gonzalonazareno.org quijote
+10.0.1.6    dulcinea.celia.gonzalonazareno.org dulcinea
+10.0.1.11   sancho.celia.gonzalonazareno.org sancho
 ```
 
 
