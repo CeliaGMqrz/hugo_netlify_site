@@ -14,7 +14,7 @@ tags: ['DMZ','NAT']
 Vamos a modificar el escenario que tenemos actualmente en OpenStack para que se adecúe a la realización de todas las prácticas en todos los módulos de 2º, en particular para que tenga una estructura más real a la de varios equipos detrás de un cortafuegos, separando los servidores en dos redes: **red interna** y **DMZ**. Para ello vamos a reutilizar todo lo hecho hasta ahora y añadiremos una máquina más: **Frestón**
 
 
-![escenario_mod.png](images/escenario/escenario_mod.png)
+![escenario_mod.png](/images/escenario/escenario_mod.png)
 
 
 ## Creación de la red DMZ:
@@ -29,7 +29,7 @@ Vamos a crear una Zona desmilitarizada, o como hemos nombrado, **DMZ**,  que se 
 
 * Creamos la red local DMZ 
 
-![create_network.png](images/escenario/create_network.png)
+![create_network.png](/images/escenario/create_network.png)
 
 
 ## Creación de las instancias: 
