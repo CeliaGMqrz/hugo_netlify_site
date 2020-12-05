@@ -9,7 +9,9 @@ tags: ['DMZ','NAT']
 
 # Modificación del escenario
 
-Nota: Si no has visto la primera parte se encuentra aquí: [Configuración inicial de los servidores. Escenario](https://unbitdeinformacioncadadia.netlify.app/posts/2020/11/instalaci%C3%B3n-y-configuraci%C3%B3n-inicial-de-los-servidores/)
+Nota: Si no has visto la primera parte se encuentra aquí: 
+
+[Configuración inicial de los servidores. Escenario](https://unbitdeinformacioncadadia.netlify.app/posts/2020/11/instalaci%C3%B3n-y-configuraci%C3%B3n-inicial-de-los-servidores/)
 
 ## Objetivo:
 
