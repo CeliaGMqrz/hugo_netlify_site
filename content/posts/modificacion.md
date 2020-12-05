@@ -9,6 +9,9 @@ tags: ['DMZ','NAT']
 
 # Modificación del escenario
 
+Nota: Para los que llegais de nuevos a esta entrada la primera parte se encuentra [aquí](https://unbitdeinformacioncadadia.netlify.app/posts/2020/11/instalaci%C3%B3n-y-configuraci%C3%B3n-inicial-de-los-servidores/)
+
+
 ## Objetivo:
 
 Vamos a modificar el escenario que tenemos actualmente en OpenStack para que se adecúe a la realización de todas las prácticas en todos los módulos de 2º, en particular para que tenga una estructura más real a la de varios equipos detrás de un cortafuegos, separando los servidores en dos redes: **red interna** y **DMZ**. Para ello vamos a reutilizar todo lo hecho hasta ahora y añadiremos una máquina más: **Frestón**
