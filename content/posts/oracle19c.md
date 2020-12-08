@@ -375,3 +375,104 @@ Version 19.3.0.0.0
 SQL> 
 
 ```
+
+## Añadir datos 
+
+* Nos conectamos de la siguiente forma a sql plus como administrador, nos pedirá la contraseña.
+
+```powershell
+sqlplus sys as sysdba
+```
+* Ahora vamos a inicializar la instancia
+
+```powershell
+startup
+```
+
+Nos saldrá algo parecido a:
+
+```powershell
+SQL> startup
+ORACLE instance started.
+
+Total System Global Area 1795159792 bytes
+Fixed Size		    9135856 bytes
+Variable Size		  419430400 bytes
+Database Buffers	 1358954496 bytes
+Redo Buffers		    7639040 bytes
+Base de datos montada.
+Base de datos abierta.
+```
+
+* Procedemos a crear el usuario que se va conectar a la base de datos y nos sucede un error. Este error se debe a que tenemos un contenedor creado den la base de datos actual. 
+
+```powershell
+SQL> create user celiagm identified by celiagm;
+create user celiagm identified by celiagm
+            *
+ERROR en linea 1:
+ORA-65096: nombre de usuario o rol comun no valido
+
+```
+* Para crear un usuario común ejecutaremos lo siguiente.
+
+```powershell
+alter session set "_ORACLE_SCRIPT"=true;
+```
+
+* Ahora si podemos crear el usuario y le damos los privilegios necesarios.
+
+```powershell
+SQL> create user celiagm identified by celiagm;
+
+Usuario creado.
+
+SQL> grant connect to celiagm;
+
+Concesion terminada correctamente.
+
+SQL> grant resource to celiagm;
+
+Concesion terminada correctamente.
+
+SQL> grant unlimited tablespace to celiagm;
+
+Concesion terminada correctamente.
+
+```
+
+* Nos desconectamos como administrador y entramos como el usuario creado.
+
+```powershell
+disconnect
+connect celiagm/celiagm
+```
+
+#### Crear las tablas e insertar datos
+
+Para ello vamos a utilizar un proyecto que hice en el primer año del ciclo que se trata de una base de datos sobre una escuela infantil.
+
+La puedes encontrar [aquí](https://github.com/CeliaGMqrz/utilidades/blob/main/fase2.sql)
+
+Nota: Cuando consultes 'select * from cat' debes de tener 12 filas seleccionadas, es decir 12 tablas.
+
+Consulta de prueba:
+
+```powershell
+SQL> select nif from relaciones where relacion = 'Padre';
+
+NIF
+---------
+41255644C
+47845789X
+K4747894D
+47458759P
+20011122Q
+Y4005598D
+47789222B
+42556648E
+20045444H
+K4747894D
+26603366E
+
+```
