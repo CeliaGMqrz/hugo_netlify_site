@@ -135,4 +135,4 @@ Parte de la instalación de debian y comprobación de red
 
 Comprobación de que la máquina está actualizada y con acceso a la red
 
-[Ver Video 2](https://youtu.be/4riAUMLBVFc)
+[Ver Video 2](https://www.youtube.com/watch?v=uu71yR7GQLA)
