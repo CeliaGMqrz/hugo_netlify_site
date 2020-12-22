@@ -131,8 +131,8 @@ Lo volvemos a intentar en el Centro, creamos una máquina virtual nueva con el m
 
 Parte de la instalación de debian y comprobación de red
 
-[![video](/images/vmware/1.png)](https://youtu.be/4riAUMLBVFc)
+[Ver Video 1](https://youtu.be/4riAUMLBVFc)
 
 Comprobación de que la máquina está actualizada y con acceso a la red
 
-[![video2](/images/vmware/1.png)](https://youtu.be/4riAUMLBVFc)
+[Ver Video 2](https://youtu.be/4riAUMLBVFc)
