@@ -22,7 +22,7 @@ Instala una máquina virtual que tenga acceso a Internet. La corrección consist
 
 Obtenemos la imagen de VMWare para nuestro servidor:
 
-[descargar ISO VMWare ESXi](https://www.dell.com/support/home/es-es/drivers/driversdetails?driverid=5yc4t)
+[descargar ISO VMWare ESXi](/images/vmware/https://www.dell.com/support/home/es-es/drivers/driversdetails?driverid=5yc4t)
 
 Grabamos la ISO en un usb y lo introducimos en el servidor. 
 
@@ -30,34 +30,34 @@ Reinciamos y configuramos el servidor para que arranque por el usb, a continuaci
 
 Nota: Es importante tener activado en la BIOS la opción de Virtualización, sin este requisito no se podrá instalar y nos surgirá el siguiente error.
 
-![requisito.jpeg](requisito.jpeg)
+![requisito.jpeg](/images/vmware/requisito.jpeg)
 
 Nos pedirá la confirmación para instalar sobre el disco
 
-![confirm.jpeg](confirm.jpeg)
+![confirm.jpeg](/images/vmware/confirm.jpeg)
 
 Vemos que se ha instalado correctamente
 
-![complete.jpg](complete.jpg)
+![complete.jpg](/images/vmware/complete.jpg)
 
 
 ## Configuración de VMWare desde el Servidor
 
 Para configurar MVWare nos pedirá las credenciales que facilitamos en la instalación
 
-![credenciales.jpeg](credenciales.jpeg)
+![credenciales.jpeg](/images/vmware/credenciales.jpeg)
 
 Le indicaremos una dirección IP estática, la cual será 172.22.221.68, anteriormente tenia la 172.22.221.63. Le hemos añadido 5 más para que podamos conectarnos a la máquina.
 
-![estatica.jpg](estatica.jpg)
+![estatica.jpg](/images/vmware/estatica.jpg)
 
 De forma que quedaría así
 
-![estatica1.jpg](estatica1.jpg)
+![estatica1.jpg](/images/vmware/estatica1.jpg)
 
 Nos aseguramos que está habilitado el ssh
 
-![ssh.jpg](ssh.jpg)
+![ssh.jpg](/images/vmware/ssh.jpg)
 
 Ahora reiniciamos el servidor, arrancando desde el disco duro donde se ha instalado el software y tendríamos lista la instalación para poder acceder remotamente desde nuestro equipo.
 
@@ -67,62 +67,62 @@ Desde casa he accedido a través de la VPN. He instalado OpenVPN sobre Windows y
 
 Accedemos desde el navegador a la dirección del servidor configurada en VMWare, la cual es **172.22.221.68**. Nos aparece lo siguiente:
 
-![vmw1.jpg](vmw1.jpg)
+![vmw1.jpg](/images/vmware/vmw1.jpg)
 
 Aquí nos aparece el enlace para descargar el cliente vSphere, lo descargamos y lo instalamos sobre nuestro sistema.
 
 Cuando esté instalado lo abrimos, nos pedirá la ip del servidor y nuestras crenciales, cuando lo introducimos tendrá este aspecto.
 
-![credenciales.png](credenciales.png)
+![credenciales.png](/images/vmware/credenciales.png)
 
-![vmw2.jpg](vmw2.jpg)
+![vmw2.jpg](/images/vmware/vmw2.jpg)
 
 
 ## Crear máquina virtual en VMWare a través del Cliente
 
 Seleccionamos nuestro servidor y creamos la una máquina virtual nueva.
 
-![vmw5.jpg](vmw5.jpg)
+![vmw5.jpg](/images/vmware/vmw5.jpg)
 
-![vmw3.jpg](vmw3.jpg)
+![vmw3.jpg](/images/vmware/vmw3.jpg)
 
 Tenemos dos opciones de configuración, típica o avanzada, en la típica se configuran varios valores por defecto y en la avanada podemos indicar la ram que vamos a usar el número de cpu e hilos entre otras cosas. No es relevante qué vamos a elegir aquí para esta práctica.
 
-![vmw4.jpg](vmw4.jpg)
+![vmw4.jpg](/images/vmware/vmw4.jpg)
 
 Nos pedirá el nombre que le vamos a poner a la máquina, en mi caso le he puesto xannan.
 
-![vmw6.jpg](vmw6.jpg)
+![vmw6.jpg](/images/vmware/vmw6.jpg)
 
 Seleccionamos el almacenamiento
 
-![vmw7.jpg](vmw7.jpg)
+![vmw7.jpg](/images/vmware/vmw7.jpg)
 
 Seleccionamos el sistema operativo que vamos a instalar en mi caso puse 'otro linux 64'
 
-![vmw8.jpg](vmw8.jpg)
+![vmw8.jpg](/images/vmware/vmw8.jpg)
 
 Dejamos por defecto la interfaz de red 
 
-![vmw9.jpg](vmw9.jpg)
+![vmw9.jpg](/images/vmware/vmw9.jpg)
 
 Dejamos por defecto los valores para crear el disco
 
-![vmw10.jpg](vmw10.jpg)
+![vmw10.jpg](/images/vmware/vmw10.jpg)
 
 Nos hará un resumen de la máquina que va a crear y le damos a 'Finish' para finalizar.
 
 Ya tendríamos la máquina virtual creada
 
-![mv1.jpg](mv1.jpg)
+![mv1.jpg](/images/vmware/mv1.jpg)
 
 A continuación le vamos a insertar una iso que tenemos en el equipo local a través del cliente de esta forma. La máquina deberá de estar encendida en ese momento.
 
-![isodisk.jpg](isodisk.jpg)
+![isodisk.jpg](/images/vmware/isodisk.jpg)
 
 Reiniciamos la máquina virtual para que arranque desde el cd con la iso e iniciará la instalación.
 
-![instalacion1.jpg](instalacion1.jpg)
+![instalacion1.jpg](/images/vmware/instalacion1.jpg)
 
 
 Desafortunadamente la instalación no se lleva a cabo, se queda congelado y no podemos continuar. Posiblemente por un fallo relacionado con las redes suponiendo que estamos conectados a través de una VPN. 
@@ -131,8 +131,8 @@ Lo volvemos a intentar en el Centro, creamos una máquina virtual nueva con el m
 
 Parte de la instalación de debian y comprobación de red
 
-[![video](captura12.png)](https://youtu.be/4riAUMLBVFc)
+[![video](/images/vmware/1.png)](https://youtu.be/4riAUMLBVFc)
 
 Comprobación de que la máquina está actualizada y con acceso a la red
 
-[![video2](captura12.png)](https://youtu.be/4riAUMLBVFc)
+[![video2](/images/vmware/1.png)](https://youtu.be/4riAUMLBVFc)
