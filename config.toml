@@ -108,6 +108,10 @@ disableHugoGeneratorInject = false
     msapplication = "#252627"
     theme = "#252627"
 
+ # favicon_ico = "favicon.ico"
+ # favicon_ico_sizes = "16x16 32x32"
+ # appleicon = "apple.png"
+
   [params.logo]
     logoText     = "$ cd /home/"
     logoHomeLink = "/"
