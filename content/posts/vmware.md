@@ -88,7 +88,7 @@ Seleccionamos nuestro servidor y creamos la una máquina virtual nueva.
 
 Tenemos dos opciones de configuración, típica o avanzada, en la típica se configuran varios valores por defecto y en la avanada podemos indicar la ram que vamos a usar el número de cpu e hilos entre otras cosas. No es relevante qué vamos a elegir aquí para esta práctica.
 
-![vmw4.jpg](/images/vmware/vmw4.jpg)
+![vmw4.jpg](/images/vmware/mvw4.jpg)
 
 Nos pedirá el nombre que le vamos a poner a la máquina, en mi caso le he puesto xannan.
 
