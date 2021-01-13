@@ -681,4 +681,5 @@ _______________________________________________________________________________
 
 
 ## Servidor de base de datos
-En sancho (Ubuntu) vamos a instalar un servidor de base de datos mariadb (bd.tu_nombre.gonzalonazareno.org). Entrega una prueba de funcionamiento donde se vea como se realiza una conexión a la base de datos desde quijote
+
+[Configurar Mariadb en Ubuntu](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/servidor-de-base-de-datos.-mariadb-en-ubuntu/)

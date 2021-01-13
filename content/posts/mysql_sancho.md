@@ -137,6 +137,8 @@ Jan 13 16:30:34 sancho /etc/mysql/debian-start[7331]: OK
 
 ```
 
+### 2. Configurar mariadb para acceder remotamente
+
 Ahora ya podemos acceder a mysql, crear un usuario que tendrá acceso remotamente desde quijote (10.0.2.4) a la base de datos alojada en Sancho.
 
 ```sh
@@ -192,6 +194,8 @@ Reiniciamos el servicio
 ```sh
 sudo systemctl restart mariadb
 ```
+
+### 3. Prueba de funcionamiento
 
 ```sh
 [centos@quijote ~]$ mysql -u celia -p -h bd.celia.gonzalonazareno.org
