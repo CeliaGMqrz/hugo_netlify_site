@@ -7,6 +7,7 @@ images:
 tags: ['httpd','apache','centos8']
 ---
 
+![banner.jpg](/images/dns/banner.jpg)
 
 Este artículo trata sobre la instalación de un servidor web Apache2 sobre Centos8 incluido dentro de un entorno previamente creado en un cloud. Las entradas anteriores son las siguientes:
 
@@ -55,7 +56,7 @@ Lo iniciamos y comprobamos que está funcionando
 Jan 12 17:21:47 quijote systemd[1]: Starting The Apache HTTP Server...
 ```
 
-## 4. Abrir puerto 443 para servir https
+## 4. Configurar el firewall
 
 ```sh
 sudo firewall-cmd --permanent --add-service=https
@@ -190,6 +191,55 @@ Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination  
 ```
 
+Nos aseguramos que en nuestra máquina física tenemos en el /etc/resolv.conf el servidor dns con la ip de dulcinea y la dirección del sitio web asociada la ip de dulcinea en el /etc/hosts, ya que no estamos conectando desde casa.
+
+
 Comprobamos que podemos acceder a la web
 
 ![web.jpeg](/images/dns/web.jpeg)
+
+### Instalación de php-fpm
+
+Para ello debemos ejecutar lo siguiente
+
+```sh
+sudo dnf install php php-fpm  php-gd php-mysqlnd
+```
+
+Habilitamos e iniciamos el servicio
+
+```sh
+[centos@quijote ~]$ sudo systemctl enable php-fpm
+Created symlink /etc/systemd/system/multi-user.target.wants/php-fpm.service → /usr/lib/systemd/system/php-fpm.service.
+[centos@quijote ~]$ sudo systemctl start php-fpm
+```
+
+Ahora tenemos que editar el fichero de configuración de nuestro virtualhost para poder servir php, le agregamos lo siguiente:
+
+`/etc/httpd/sites-available/celia.gonzalonazareno.org.conf`
+
+```sh
+<Proxy "unix:/run/php-fpm/www.sock|fcgi://php-fpm">
+        ProxySet disablereuse=off
+</Proxy>
+
+<FilesMatch \.php$>
+        SetHandler proxy:fcgi://php-fpm
+</FilesMatch>
+```
+
+Una vez modificado el archivo tenemos que crear un fichero .php indispensable para ver que funciona
+
+```sh
+sudo nano /var/www/iesgn/info.php
+```
+
+`info.php`
+
+```sh
+<?php phpinfo(); ?>
+```
+
+Comprobamos que funciona
+
+![info.png](/images/dns/info.png)
