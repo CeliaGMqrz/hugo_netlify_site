@@ -192,4 +192,4 @@ Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
 
 Comprobamos que podemos acceder a la web
 
-![]()
+![web.jpeg](/images/dns/web.jpeg)
