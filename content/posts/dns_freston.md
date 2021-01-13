@@ -339,7 +339,7 @@ search celia.gonzalonazareno.org
 
 Una regla DNAT cambia la dirección destino de un paquete. Funciona comom el Port de Forwarding. 
 
-Le vamos a decir que añada una regla dnat, indicando que el tráfico que venga por el puerto 53 y la interfaz eth0 lo redirija a la interfaz eth1 (10.0.1.6) al puerto 53, cambiado la dirección destino de ese tráfico para que se puedan realizar las consultas desde fuera al dns que tenemos en el interior.
+Le vamos a decir que añada una regla dnat, indicando que el tráfico que venga por el puerto 53 y la interfaz eth0 lo redirija a la interfaz de freston (10.0.1.2) al puerto 53, cambiado la dirección destino de ese tráfico para que se puedan realizar las consultas desde fuera al dns que tenemos en el interior.
 
 ```sh
 sudo iptables -t nat -A PREROUTING -p udp --dport 53 -i eth0 -j DNAT --to 10.0.1.2:53
