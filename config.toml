@@ -56,9 +56,9 @@ disableHugoGeneratorInject = false
 
   # Metadata mostly used in document's head
   # 
-  description = "Nice theme for homepages and blogs"
-  keywords = ""
-  images = [""]
+  description = "Un bit de informacion cada día"
+  keywords = "blogs"
+  images = ["/images/candado.jpeg"]
 
   homeSubtitle = "Celia García Márquez"
 
@@ -108,9 +108,9 @@ disableHugoGeneratorInject = false
     msapplication = "#252627"
     theme = "#252627"
 
- # favicon_ico = "favicon.ico"
- # favicon_ico_sizes = "16x16 32x32"
- # appleicon = "apple.png"
+   favicon_ico = "favicon.ico"
+   favicon_ico_sizes = "16x16 32x32"
+   appleicon = "apple.png"
 
   [params.logo]
     logoText     = "$ cd /home/"
