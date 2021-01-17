@@ -5,9 +5,10 @@ draft: false
 toc: false
 images:
 tags: ['dns','bind9']
+cover = "/images/dns/banner.jpg"
 ---
 
-cover = "/images/dns/banner.jpg"
+
 
 ### Objetivo:
 
