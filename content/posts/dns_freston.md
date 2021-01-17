@@ -7,6 +7,8 @@ images:
 tags: ['dns','bind9']
 ---
 
+cover = "/images/dns/banner.jpg"
+
 ### Objetivo:
 
 Vamos a instalar un servidor dns en freston que nos permita gestionar la resolución directa e inversa de nuestros nombres. Cada alumno va a poseer un servidor dns con autoridad sobre un subdominio de nuestro dominio principal **gonzalonazareno.org**, que se llamará **tu_nombre.gonzalonazareno.org**. A partir de este momento no será necesario la resolución estática en los servidores.
