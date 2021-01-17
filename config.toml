@@ -56,9 +56,9 @@ disableHugoGeneratorInject = false
 
   # Metadata mostly used in document's head
   # 
-  description = "Un bit de informacion cada día"
+  description = "Blog sobre informática"
   keywords = "blogs"
-  images = ["/images/candado.jpeg"]
+  images = ["/images/avatar_red.jpg"]
 
   homeSubtitle = "Celia García Márquez"
 
@@ -110,7 +110,7 @@ disableHugoGeneratorInject = false
 
    favicon_ico = "favicon.ico"
    favicon_ico_sizes = "16x16 32x32"
-   appleicon = "apple.png"
+   appleicon = "/images/avatar_red.jpg"
 
   [params.logo]
     logoText     = "$ cd /home/"
