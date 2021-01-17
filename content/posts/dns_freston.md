@@ -3,9 +3,8 @@ title: "Configurar un DNS con bind9"
 date: 2021-01-12T19:49:10+01:00
 draft: false
 toc: false
-images:
+images: ['/images/dns/banner.jpg']
 tags: ['dns','bind9']
-cover : "/images/dns/banner.jpg"
 ---
 
 ### Objetivo:
@@ -193,7 +192,7 @@ sudo cp /etc/bind/db.empty /var/cache/bind/db.int.celia.gonzalonazareno.org
 Editamos el fichero de tal forma
 
 ```sh
-sudo nano /var/cache/bind/db.int.celia.gonzalonazareno.org 
+sudo nano /var/cache/bind/db.int.celia.gonzalonazareno.org
 ```
 
 ### `/etc/bind/db.int.celia.gonzalonazareno.org `
@@ -227,7 +226,7 @@ bd       IN     CNAME   sancho
 Podemos usar como plantilla /etc/bind/db.127
 
 ```sh
-sudo nano /etc/bind/db.1.0.10 
+sudo nano /etc/bind/db.1.0.10
 ```
 ### `/etc/bind/db.1.0.10 `
 ```sh
@@ -338,7 +337,7 @@ search celia.gonzalonazareno.org
 
 ## 3. Regla DNAT en Dulcinea
 
-Una regla DNAT cambia la dirección destino de un paquete. Funciona comom el Port de Forwarding. 
+Una regla DNAT cambia la dirección destino de un paquete. Funciona comom el Port de Forwarding.
 
 Le vamos a decir que añada una regla dnat, indicando que el tráfico que venga por el puerto 53 y la interfaz eth0 lo redirija a la interfaz de freston (10.0.1.2) al puerto 53, cambiado la dirección destino de ese tráfico para que se puedan realizar las consultas desde fuera al dns que tenemos en el interior.
 
@@ -351,19 +350,19 @@ Comprobamos que la regla se ha añadido correctamente
 ```sh
 debian@dulcinea:~$ sudo iptables -t nat -L -nv
 Chain PREROUTING (policy ACCEPT 0 packets, 0 bytes)
- pkts bytes target     prot opt in     out     source               destination         
+ pkts bytes target     prot opt in     out     source               destination
    21  2122 DNAT       udp  --  eth0   *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 to:10.0.1.2:53
 
 Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
- pkts bytes target     prot opt in     out     source               destination         
+ pkts bytes target     prot opt in     out     source               destination
 
 Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
- pkts bytes target     prot opt in     out     source               destination         
- 1466  112K MASQUERADE  all  --  *      eth0    10.0.1.0/24          0.0.0.0/0           
-  428 30576 MASQUERADE  all  --  *      eth0    10.0.2.0/24          0.0.0.0/0           
+ pkts bytes target     prot opt in     out     source               destination
+ 1466  112K MASQUERADE  all  --  *      eth0    10.0.1.0/24          0.0.0.0/0
+  428 30576 MASQUERADE  all  --  *      eth0    10.0.2.0/24          0.0.0.0/0
 
 Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
- pkts bytes target     prot opt in     out     source               destination   
+ pkts bytes target     prot opt in     out     source               destination
 ```
 
 ## 4. CONSULTAS
