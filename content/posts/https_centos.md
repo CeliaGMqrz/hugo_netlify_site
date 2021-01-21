@@ -1,5 +1,5 @@
 ---
-title: "Configurar HTTPS en Centos (Quijote)"
+title: "Configurar HTTPS en Centos 8 (Quijote)"
 date: 2021-01-21T10:11:23+01:00
 draft: false
 toc: false
@@ -8,7 +8,7 @@ tags: ['https','centos8']
 ---
 
 
-![https.jpeg](/images/escenario/https.jpeg)
+![https.jpeg](/images/candado.jpeg)
 
 
 **¡!** Este post está relacionado con un entrono de trabajo con openstack incluido en otras entradas de mi blog.
