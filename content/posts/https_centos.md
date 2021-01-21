@@ -195,10 +195,10 @@ Recuerda que el /etc/resolv.conf tiene que apuntar a la ip flotante de dulcinea.
 
 Comprobamos que funciona y que estamos en un sitio seguro
 
-![safe1.png](safe1.png)
+![safe1.png](/images/escenario/safe1.png)
 
-![safe2.png](safe2.png)
+![safe2.png](/images/escenario/safe2.png)
 
-![safe3.png](safe3.png)
+![safe3.png](/images/escenarios/afe3.png)
 
 
