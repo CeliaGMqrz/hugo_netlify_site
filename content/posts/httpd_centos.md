@@ -109,7 +109,7 @@ drwxr-xr-x. 3 root root 35 Jan 13 10:59 iesgn
 
 Creamos el fichero de configuración de nuestro virtualhost
 
-`sudo nano /etc/httpd/sites-availble/gonzalonazareno.conf`
+`sudo nano /etc/httpd/sites-availble/celia.gonzalonazareno.conf`
 
 ```sh
  <VirtualHost *:80>

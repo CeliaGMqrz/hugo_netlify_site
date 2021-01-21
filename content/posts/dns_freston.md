@@ -3,7 +3,6 @@ title: "Configurar un DNS con bind9"
 date: 2021-01-12T19:49:10+01:00
 draft: false
 toc: false
-header_image: /images/dns/banner.jpg
 tags: ['dns','bind9']
 ---
 
