@@ -199,6 +199,6 @@ Comprobamos que funciona y que estamos en un sitio seguro
 
 ![safe2.png](/images/escenario/safe2.png)
 
-![safe3.png](/images/escenario/afe3.png)
+![safe3.png](/images/escenario/safe3.png)
 
 
