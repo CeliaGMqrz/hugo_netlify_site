@@ -11,7 +11,7 @@ tags: ['openstack','escenario']
 
 ## Introducción
 
-En el IES Gonzalo Nazareno, en el segundo año del ciclo superior de Administración de sistemas informáticos en red, se ha propuesto un escenario implantado sobre Openstack en el que nosotros, los alumnos hemos puesto en práctica muchas tareas relacionadas con servidores linux. 
+En el IES Gonzalo Nazareno, en el segundo año del ciclo superior de Administración de sistemas informáticos en red, se ha propuesto un escenario implantado sobre Openstack en el que nosotros, los alumnos, hemos puesto en práctica muchas tareas relacionadas con servidores linux. 
 
 Trabajamos con sistemas operativos Linux, entre ellos con distribuciones como Debian Buster, Centos7, Centos8 y Ubuntu Server 20.04. 
 
@@ -21,19 +21,19 @@ Tratamos con los diferentes sistemas y la instalación y configuración de servi
 
 > Las tareas se irán actualizando y modificando a lo largo del curso.
 
-*  [Instalación y configuración inicial de los servidores](https://unbitdeinformacioncadadia.netlify.app/posts/2020/11/instalaci%C3%B3n-y-configuraci%C3%B3n-inicial-de-los-servidores/)
+1.  [Instalación y configuración inicial de los servidores](https://unbitdeinformacioncadadia.netlify.app/posts/2020/11/instalaci%C3%B3n-y-configuraci%C3%B3n-inicial-de-los-servidores/)
  
-*  [Actualización de Centos7 a Centos8](https://unbitdeinformacioncadadia.netlify.app/posts/2020/11/actualizacion-de-centos7-a-centos8/)
+2. [Actualización de Centos7 a Centos8](https://unbitdeinformacioncadadia.netlify.app/posts/2020/11/actualizacion-de-centos7-a-centos8/)
 
-* [Añadir red DMZ. Modificación del escenario](https://unbitdeinformacioncadadia.netlify.app/posts/2020/12/red-dmz.-modificacion-del-escenario./)
+3. [Añadir red DMZ. Modificación del escenario](https://unbitdeinformacioncadadia.netlify.app/posts/2020/12/red-dmz.-modificacion-del-escenario./)
 
-*  [Instalación y configuración inicial de OpenLDAP](https://unbitdeinformacioncadadia.netlify.app/posts/2020/12/instalaci%C3%B3n-y-configuraci%C3%B3n-inicial-de-openldap/)
+4.  [Instalación y configuración inicial de OpenLDAP](https://unbitdeinformacioncadadia.netlify.app/posts/2020/12/instalaci%C3%B3n-y-configuraci%C3%B3n-inicial-de-openldap/)
 
-* [Configuración de un DNS con bind9. Freston](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/configurar-un-dns-con-bind9/)
+5. [Configuración de un DNS con bind9. Freston](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/configurar-un-dns-con-bind9/)
 
-* [Servidor Web Apache2 en Centos 8. Quijote](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/servidor-web-apache2-httpd-en-centos8/)
+6. [Servidor Web Apache2 en Centos 8. Quijote](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/servidor-web-apache2-httpd-en-centos8/)
 
-* [Configuración de HTTPS en Centos8. Quijote](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/configurar-https-en-centos-8-quijote/) 
+7. [Configuración de HTTPS en Centos8. Quijote](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/configurar-https-en-centos-8-quijote/) 
 
-* [Configuración de MariaDB en Ubuntu. Sancho](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/servidor-de-base-de-datos.-mariadb-en-ubuntu/)
+8. [Configuración de MariaDB en Ubuntu. Sancho](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/servidor-de-base-de-datos.-mariadb-en-ubuntu/)
 
