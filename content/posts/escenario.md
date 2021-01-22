@@ -636,3 +636,7 @@ Tue Nov 24 13:46:08 CET 2020
 [root@quijote centos]# date
 Tue Nov 24 13:46:49 CET 2020
 ```
+
+
+-> Continua el proyecto en:
+[Actualización de Centos7 a Centos8](https://unbitdeinformacioncadadia.netlify.app/posts/2020/11/actualizacion-de-centos7-a-centos8/)
