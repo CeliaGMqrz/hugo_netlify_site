@@ -7,11 +7,11 @@ images:
 tags: ['servidor correos','spf','mailx','postfix']
 ---
 
-
+![postfix.png](/images/ovh_correo/postfix.png)
 
 ## 1. Objetivo. 
 
-![postfix.png](/images/ovh_correo/postfix.png) Instalación y configuración de un servidor de correos en una máquina de OVH, para el dominio **iesgn05**. El nombre del servidor de correo será **mail.iesgn05.es**.
+ Instalación y configuración de un servidor de correos en una máquina de OVH, para el dominio **iesgn05**. El nombre del servidor de correo será **mail.iesgn05.es**.
 
 Configurar un registro **SPF**, que es un mecanismo de autenticación que mediante un registro DNS de tipo TXT describe las direcciones IPs y nombres DNS autorizados a enviar correo @DOMINIO. 
 
