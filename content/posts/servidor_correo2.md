@@ -139,3 +139,10 @@ cgarmai95@gmail.com
 Ejecutamos el script y comprobamos que se ha enviado un correo notificando su ejecución.
 
 ![redir_gmail.png](/images/ovh_correo/redir_gmail.png)
+
+> Si queremos listar o eliminar las tareas de cron 
+
+```sh
+crontab -l
+crontab -r
+```
