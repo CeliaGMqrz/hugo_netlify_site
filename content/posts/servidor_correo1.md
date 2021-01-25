@@ -20,7 +20,7 @@ Configurar un registro **SPF**, que es un mecanismo de autenticación que median
 ### 2.1. Instalación del servidor de correos
 
 Para instalar el servidor de correos vamos a descargar e instalar el paquete `
-`postfix` y la utilidad `bsd-mailx` para leer los correos.
+` postfix ` y la utilidad ` bsd-mailx ` para leer los correos.
 
 ```sh
 sudo apt-get install postfix bsd-mailx
