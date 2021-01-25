@@ -7,8 +7,7 @@ images:
 tags: ['ldaps']
 ---
 
-
-# Configurar LDAPS en Debian Buster
+![ldaps.png](/images/escenario/ldaps.png)
 
 **¡!** Este post está relacionado con un entrono de trabajo con openstack incluido en otras entradas de mi blog.
 
