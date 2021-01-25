@@ -71,7 +71,7 @@ You have mail in /var/mail/debian
 
 * Mostrar registro SPF
 
-![correo2.png](/images/ohv_correo/correo2.png)
+![correo2.png](/images/ovh_correo/correo2.png)
 
 ### 2.2. Enviar un correo de prueba del exterior a local
 
@@ -80,7 +80,7 @@ Tarea 2: Documenta una prueba de funcionamiento, donde envíes un correo desde e
 
 * Enviamos el correo de prueba
 
-![correo3.png](/images/ohv_correo/correo3.png)
+![correo3.png](/images/ovh_correo/correo3.png)
 
 * Mostramos el log del envio
 
