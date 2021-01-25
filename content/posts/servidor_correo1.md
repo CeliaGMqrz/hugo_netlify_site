@@ -7,6 +7,7 @@ images:
 tags: ['servidor correos','spf','mailx','postfix']
 ---
 
+![postfix.png](/images/ovh_correo/postfix.png) 
 
 ## 1. Objetivo.
 
