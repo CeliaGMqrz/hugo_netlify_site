@@ -7,6 +7,8 @@ images:
 tags: ['cms','python','djando','wagtail']
 ---
 
+![django.png](/images/escenario/django/django.png)
+
 ## Objetivo:
 
 En este post vamos a trabajar sobre el entorno de trabajo de openstack nuevamente, el mismo sobre el que tratamos en el blog. 
@@ -68,13 +70,50 @@ Quit the server with CONTROL-C.
 
 ```
 
-![wag1.png](wag1.png)
+![wag1.png](/images/escenario/django/wag1.png)
 
 * Nos vamos a **http://127.0.0.1:8000/admin/** en el navegador y metemos las credenciales que hemos configurado anteriormente y nos saldrá la pagina para administrar el sitio web.
 
-![wag2.png](wag2.png)
+![wag2.png](/images/escenario/django/wag2.png)
 
 
 ## 2. Personalización del Sitio Web
 
+
+He seguido un poco la [documentación de Wagtail](https://docs.wagtail.io/en/stable/getting_started/tutorial.html), para personalizar el sitio web y ahora tiene el siguiente aspecto.
+
+![inicio.png](/images/escenario/django/inicio.png)
+
+
+Se le ha añadido varios apartados entre ellos un blog, al que se puede acceder añadiendo /blog a la url.
+
+![admin.png](/images/escenario/django/admin.png)
+
+![blog.png](/images/escenario/django/blog.png)
+
+
+
+## 3. Copia de seguridad de la base de datos
+
+Vamos a guardar los ficheros que componen esta aplicación en un repositorio de git y ademas tambien vamos hacer la copia de seguridad de la base de datos y la subiremos al mismo repositorio.
+
+* Creamos un repositorio vacio en el directorio de wagtail, añadimos todo el contenido y lo subimos al repositorio que tenemos creado en git.
+
+```sh
+git init
+git add *
+git commit -am "wagtail"
+git remote add origin git@github.com:CeliaGMqrz/wagtail.git
+git branch -M main
+git push -u origin main
+```
+* Entramos en el directorio mysite y creamos la copia de seguridad de la base de datos, la añadimos al repositorio y la subimos.
+
+```sh
+cd mysite/
+python manage.py dumpdata > backup_db.json
+git add backup_db.json 
+git commit -am "copia de seguridad"
+git push
+```
 
