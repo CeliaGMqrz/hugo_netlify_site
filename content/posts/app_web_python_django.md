@@ -9,6 +9,8 @@ tags: ['cms','python','djando','wagtail']
 
 ![django.png](/images/escenario/django/django.png)
 
+![wagtail.png](/images/escenario/django/wagtail.png)
+
 ## Objetivo:
 
 En este post vamos a trabajar sobre el entorno de trabajo de openstack nuevamente, el mismo sobre el que tratamos en el blog. 
@@ -19,7 +21,7 @@ El objetivo es desplegar un CMS python, en este caso wagtail, basado en django.
 
 ## 1. Instalación de wagtail.
 
-![wagtail.png](/images/escenario/django/wagtail.png)
+
 
 ### Entorno de desarrollo: Creación del entorno virtual.
 
