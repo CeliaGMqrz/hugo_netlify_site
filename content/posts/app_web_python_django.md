@@ -7,8 +7,6 @@ images:
 tags: ['cms','python','djando','wagtail']
 ---
 
-![django.png](/images/escenario/django/django.png)
-
 ![wagtail.png](/images/escenario/django/wagtail.png)
 
 ## Objetivo:
