@@ -19,6 +19,8 @@ El objetivo es desplegar un CMS python, en este caso wagtail, basado en django.
 
 ## 1. Instalación de wagtail.
 
+![wagtail.png](/images/escenario/django/wagtail.png)
+
 ### Entorno de desarrollo: Creación del entorno virtual.
 
 * Primero tendremos que crear un [entorno virtual](https://github.com/CeliaGMqrz/trabajando_python3_venv) en nuestra máquina anfitriona.
