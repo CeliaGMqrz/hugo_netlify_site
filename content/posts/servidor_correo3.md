@@ -15,7 +15,7 @@ tags: ['servidor de correos','dovecot', 'IMAP']
 
 Configura el buzón de los usuarios de tipo Maildir. Envía un correo a tu usuario y comprueba que el correo se ha guardado en el buzón **Maildir** del usuario del sistema correspondiente. Recuerda que ese tipo de buzón no se puede leer con la utilidad mail.
 
-**Configuracion:**
+**Configuración:**
 
 * Para hacer esta tarea vamos a indicar a postfix en su configuración dónde se van a guardar los nuevos correos.
 
@@ -160,7 +160,7 @@ tcp6       0      0 :::993                  :::*                    LISTEN      
 
 * Creamos el CNAME en la zona DNS
 
-![imap.png](/images/correo_ovh/imap.png)
+![imap.png](/images/ovh_correo/imap.png)
 
 
 * Habilitamos la opción 'protocols' estableciendo como valor imap
