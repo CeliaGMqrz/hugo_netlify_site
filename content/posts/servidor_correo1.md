@@ -38,7 +38,7 @@ Cuando instalemos postfix, dejaremos la configuración por defecto por el moment
 
 ### 2.2. Enviar un correo de prueba desde el servidor de correos al exterior
 
-Tarea 1: Documenta una prueba de funcionamiento, donde envíes desde tu servidor local al exterior. Muestra el log donde se vea el envío. Muestra el correo que has recibido. Muestra el registro SPF.
+**Tarea 1**: Documenta una prueba de funcionamiento, donde envíes desde tu servidor local al exterior. Muestra el log donde se vea el envío. Muestra el correo que has recibido. Muestra el registro SPF.
 
 * Mandamos el correo de prueba:
 
@@ -81,7 +81,7 @@ Feb  2 12:57:46 kiara postfix/qmgr[1552]: C4F0661F15: removed
 
 ### 2.2. Enviar un correo de prueba del exterior al servidor de correos
 
-Tarea 2: Documenta una prueba de funcionamiento, donde envíes un correo desde el exterior (gmail, hotmail,…) a tu servidor local. Muestra el log donde se vea el envío. Muestra cómo has leído el correo. Muestra el registro MX de tu dominio.
+**Tarea 2**: Documenta una prueba de funcionamiento, donde envíes un correo desde el exterior (gmail, hotmail,…) a tu servidor local. Muestra el log donde se vea el envío. Muestra cómo has leído el correo. Muestra el registro MX de tu dominio.
 
 
 * Enviamos el correo de prueba
