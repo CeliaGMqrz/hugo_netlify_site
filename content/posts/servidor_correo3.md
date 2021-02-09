@@ -335,7 +335,7 @@ ssl_key = </etc/dovecot/private/privkey.pem
 
 ```
 
-* Comprobamos nuestra configuracion de **postfix** 
+* Comprobamos nuestra configuracion de **postfix**
 
 ```sh
 debian@kiara:~$ sudo postconf -n
@@ -382,16 +382,16 @@ sudo systemctl restart dovecot
 ```sh
 debian@kiara:~$ sudo netstat -tlpn
 Active Internet connections (only servers)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-tcp        0      0 0.0.0.0:993             0.0.0.0:*               LISTEN      20901/dovecot       
-tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      658/mysqld          
-tcp        0      0 0.0.0.0:143             0.0.0.0:*               LISTEN      20901/dovecot       
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      568/sshd            
-tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      20572/master        
-tcp6       0      0 :::993                  :::*                    LISTEN      20901/dovecot       
-tcp6       0      0 :::143                  :::*                    LISTEN      20901/dovecot       
-tcp6       0      0 :::22                   :::*                    LISTEN      568/sshd            
-tcp6       0      0 :::25                   :::*                    LISTEN      20572/master      
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:993             0.0.0.0:*               LISTEN      20901/dovecot
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      658/mysqld
+tcp        0      0 0.0.0.0:143             0.0.0.0:*               LISTEN      20901/dovecot
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      568/sshd
+tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      20572/master
+tcp6       0      0 :::993                  :::*                    LISTEN      20901/dovecot
+tcp6       0      0 :::143                  :::*                    LISTEN      20901/dovecot
+tcp6       0      0 :::22                   :::*                    LISTEN      568/sshd
+tcp6       0      0 :::25                   :::*                    LISTEN      20572/master
 ```
 
 #### 9.5. Cuenta de correo en Evolution
@@ -416,7 +416,7 @@ Dejaremos por defecto las opciones de recepción
 
 ![f3.png](/images/ovh_correo/f3.png)
 
-En este apartado veremos que se usará SMTP para la conexión al servidor. Indicaremos  en este caso es **smtp.iesgn05.es y el puerto 465. 
+En este apartado veremos que se usará SMTP para la conexión al servidor. Indicaremos  en este caso es **smtp.iesgn05.es y el puerto 465.
 
 ![f5.png](/images/ovh_correo/f5.png)
 
@@ -467,10 +467,131 @@ Feb  9 20:10:37 kiara postfix/smtpd[22106]: disconnect from mail-oo1-f41.google.
 
 
 ```
+### Tarea 11: Mandar correos desde un cliente remoto.
 
-Ahora vamos a intentar mandar un correo desde el servidor a gmail
+**Descripción:**
 
-(POR TERMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11)
+Configura de manera adecuada postfix para que podamos mandar un correo desde un cliente remoto. La conexión entre cliente y servidor debe estar autentificada con SASL usando dovecor y además debe estar cifrada. Para cifrar esta comunicación puedes usar dos opciones:
 
-![pruebagmail.png](/images/ovh_correo/pruebagmail.png)
+* ESMTP + STARTTLS: Usando el puerto 567/tcp enviamos de forma segura el correo al servidor.
+* SMTPS: Utiliza un puerto no estándar (465) para SMTPS (Simple Mail Transfer Protocol Secure). No es una extensión de smtp. Es muy parecido a HTTPS.
 
+Elige una de las opciones anterior para realizar el cifrado. Y muestra la configuración de un cliente de correo (evolution, thunderbird, …) y muestra como puedes enviar los correos.
+
+#### 11.1. SMTPS. Configuración
+
+
+
+Ahora vamos a intentar mandar un correo desde el servidor a gmail. Antes de eso vamos a crear los certificados con openssl
+
+```sh
+# Creamos la clave privada
+debian@kiara:~$ openssl genrsa -des3 -out kiara.key 2048
+Generating RSA private key, 2048 bit long modulus (2 primes)
+...........+++++
+..................................................................................................................................+++++
+e is 65537 (0x010001)
+Enter pass phrase for kiara.key:
+Verifying - Enter pass phrase for kiara.key:
+
+# Con la clave privada creada creamos otra clave 'insegura'
+
+debian@kiara:~$ openssl rsa -in kiara.key -out kiara.key.insecure
+Enter pass phrase for kiara.key:
+writing RSA key
+
+# Ahora le cambiamos el nombre de la primera clave que hemos creado y la denominamos como segura
+debian@kiara:~$ mv kiara.key kiara.key.secure
+
+# Después la 'insegura la convertimos en la clave primaria'
+
+debian@kiara:~$ mv kiara.key.insecure kiara.key
+
+# Con openssl creamos el certificado de que nos va a servir para smtp
+
+debian@kiara:~$ openssl req -new -key kiara.key -out kiara.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:ES
+State or Province Name (full name) [Some-State]:Sevilla
+Locality Name (eg, city) []:Sevilla
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+
+# Una vez creado el certificado vamos a firmarlo con la clave primada y obtendremos el certificado final
+
+debian@kiara:~$ openssl x509 -req -days 365 -in kiara.csr -signkey kiara.key -out kiara.crt
+Signature ok
+subject=C = ES, ST = Sevilla, L = Sevilla, O = Internet Widgits Pty Ltd
+Getting Private key
+
+# Copiamos los certificados a los directorios pertinentes
+
+debian@kiara:~$ sudo cp kiara.crt /etc/ssl/certs
+debian@kiara:~$ sudo cp kiara.key /etc/ssl/private
+
+```
+
+* Editamos el fichero de configuracion de postfix, cambiamos la configuracion indicando los nuevos certificados
+
+```sh
+debian@kiara:~$ sudo nano /etc/postfix/main.cf
+
+```
+
+```sh
+...
+
+# TLS parameters
+smtpd_tls_cert_file=/etc/ssl/certs/kiara.crt
+smtpd_tls_key_file=/etc/ssl/private/kiara.key
+
+...
+
+```
+* Reiniciamos los servicios
+```sh
+debian@kiara:~$ sudo systemctl restart postfix
+debian@kiara:~$ sudo systemctl restart dovecot
+```
+
+#### Funcionamiento
+
+* En Evolution cambiamos la configuracion de smtp de la siguiente forma
+
+![smtp.png](/images/ovh_correo/smtp.png)
+
+
+* Probamos enviar algun correo al nuestro personal
+
+![pruebae.png](/images/ovh_correo/pruebae.png)
+
+
+* Nos pide una contraseña ya que, en nuestro certificado creado con openssl le hemos indicado una frase de paso. Esta frase solo la pedirá una vez cada vez que se inicie sesión en la cuenta de correo en el cliente, Evolution.
+
+![pidecontrasenia.png](/images/ovh_correo/pidecontrasenia.png)
+
+
+* Vemos que lo hemos recibido en gmail correctamente
+
+![recibido.png](/images/ovh_correo/recibido.png)
+
+![recibido1.png](/images/ovh_correo/recibido1.png)
+
+* Lo contestamos y comprobamos que recibe y envía correctamente correos
+
+![responde1.png](/images/ovh_correo/responde1.png)
+
+![responde2.png](/images/ovh_correo/responde2.png)
