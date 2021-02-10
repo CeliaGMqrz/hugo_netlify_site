@@ -416,9 +416,9 @@ Dejaremos por defecto las opciones de recepción
 
 ![f3.png](/images/ovh_correo/f3.png)
 
-En este apartado veremos que se usará SMTP para la conexión al servidor. Indicaremos  en este caso es **smtp.iesgn05.es y el puerto 465.
+En este apartado veremos que se usará SMTP para la conexión al servidor. Indicaremos  en este caso es **smtp.iesgn05.es** y el puerto 465. (Esto aún no funcionará porque no hemos habilitado el SMPTPS)
 
-![f5.png](/images/ovh_correo/f5.png)
+![SMTP.png](/images/ovh_correo/SMTP.png)
 
 Aquí nos mostrará un resumen de nuestra configuración
 
@@ -480,7 +480,7 @@ Elige una de las opciones anterior para realizar el cifrado. Y muestra la config
 
 #### 11.1. SMTPS. Configuración
 
-
+Previamente hemos agregado un CNAME indicando smtp.iesgn05.es para kiara.iesgn05.es en la zona DNS.
 
 Ahora vamos a intentar mandar un correo desde el servidor a gmail. Antes de eso vamos a crear los certificados con openssl
 
@@ -561,17 +561,46 @@ smtpd_tls_key_file=/etc/ssl/private/kiara.key
 ...
 
 ```
+
+* Para usar SMTPS hay que descomentar una línea en el siguiente fichero y descomentar la línea que viene por defecto
+
+`sudo nano /etc/postfix/master.cf`
+
+```sh
+#smtp      inet  n       -       y       -       -       smtpd
+smtps     inet  n       -       y       -       -       smtpd
+```
+
+
 * Reiniciamos los servicios
 ```sh
 debian@kiara:~$ sudo systemctl restart postfix
 debian@kiara:~$ sudo systemctl restart dovecot
 ```
 
+
+* Comprobamos los puertos. Vemos que se ha abierto el puerto 465 de SMTPS
+
+```sh
+debian@kiara:~$ sudo netstat -tlpn
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:993             0.0.0.0:*               LISTEN      25578/dovecot       
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      658/mysqld          
+tcp        0      0 0.0.0.0:143             0.0.0.0:*               LISTEN      25578/dovecot       
+tcp        0      0 0.0.0.0:465             0.0.0.0:*               LISTEN      13237/master        
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      568/sshd            
+tcp6       0      0 :::993                  :::*                    LISTEN      25578/dovecot       
+tcp6       0      0 :::143                  :::*                    LISTEN      25578/dovecot       
+tcp6       0      0 :::465                  :::*                    LISTEN      13237/master        
+tcp6       0      0 :::22                   :::*                    LISTEN      568/sshd  
+```
+
 #### Funcionamiento
 
 * En Evolution cambiamos la configuracion de smtp de la siguiente forma
 
-![smtp.png](/images/ovh_correo/smtp.png)
+![SMTP.png](/images/ovh_correo/SMTP.png)
 
 
 * Probamos enviar algun correo al nuestro personal
