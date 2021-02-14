@@ -23,7 +23,7 @@ Vamos a instalar un webmail (Roundcube), sobre Debian Buster alojado en una máq
 
 * Servidor de correos, en este caso usaremos [Postfix](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/servidor-de-correos.-postfix-i/)
 
-* Un servidor DNS, en este caso OVH se encarga de ello pero podemos configurarlo con [Bind9](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/configurar-un-dns-con-bind9/), de forma que se cree un subdominio o dominio que se usará para roundcube, en este caso el subdominio será correo.iesgn05.es. que es un CNAME de nuestra máquina kiara.iesgn05.es.
+* Un servidor DNS, en este caso OVH se encarga de ello pero podemos configurarlo con [Bind9](https://unbitdeinformacioncadadia.netlify.app/posts/2021/01/configurar-un-dns-con-bind9/), de forma que se cree un subdominio o dominio que se usará para roundcube, en este caso el subdominio será mail.iesgn05.es. que es un CNAME de nuestra máquina kiara.iesgn05.es.
 
 ## 2. Instalación de extensiones PHP 
 
