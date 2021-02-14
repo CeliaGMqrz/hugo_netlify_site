@@ -226,9 +226,7 @@ Ahora vamos a crear la configuración:
 
 ![r4.png](/images/ovh_correo/r4.png)
 
-* Aquí se hará la configuración de IMAP
-
-![r5.png](/images/ovh_correo/r5.png)
+* Aquí se hará la configuración de IMAP, la dejaremos por defecto que coja el puerto 143.
 
 * Aquí se indicará la configuracion de SMTP
 
