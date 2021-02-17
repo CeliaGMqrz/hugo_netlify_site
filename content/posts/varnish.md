@@ -9,7 +9,10 @@ tags: ['varnish','rendimiento', 'apache', 'nginx']
 
 > Para ver la introducción a este tema puedes entrar en este post:
 
-[Gestión de peticiones y rendimiento de servidores Web]()
+[Gestión de peticiones y rendimiento de servidores Web](https://unbitdeinformacioncadadia.netlify.app/posts/2021/02/gesti%C3%B3n-de-peticiones-y-rendimiento-de-servidores-web/)
+
+
+![varnish.png](/images/rendimiento/varnish.png)
 
 ## 1. Concepto: Varnish
 

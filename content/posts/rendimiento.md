@@ -23,7 +23,7 @@ Podemos tener varios módulos MPM instalados pero solamente uno cargado y funcio
 
 **Multiprocesos de Apache**
 
-* Multiproceso del tipo Prefork (mpm-prefork)
+* Multiproceso del tipo **Prefork** (mpm-prefork)
 
     * Apache inicia varios subprocesos y cada petición es atendida por uno de estos; Cuando termina con la petición podría atender a otro cliente o ser terminado (MaxRequestPerChild). 
 
@@ -35,7 +35,7 @@ Podemos tener varios módulos MPM instalados pero solamente uno cargado y funcio
 
     * Prefork es la configuración estándar para la mayoría de las instalaciones de apache.
 
-* Multiproceso tipo Worker (mpm-worker)
+* Multiproceso tipo **Worker** (mpm-worker)
 
     * Apache inicia varios subprocesos y estos mantienen varios hilos (threads) con los cuales procesan las peticiones. De forma que un subproceso puede atender varios clientes. (ThreadsPerChild).
     * El hecho de que un subproceso pueda manejar varias peticiones supone utilizar menos recursos.
@@ -53,13 +53,13 @@ El servidor con Worker puede manejar más peticiones que el Prefork y no consume
 
 Dependiendo el tipo de contenido que vayamos a servir elegiría uno u otro.
 
-* Multiproceso tipo Event (mpm-event)
+* Multiproceso tipo **Event** (mpm-event)
 
     * Ya es estable
     * Es una mejora de MPM worker y soluciona el problema de optimización de Worker con la opciñon Keep Alive de Apache.
     * Está basado en MPM Worker y tiene las mismas ventajas e incovenientes y tampoco es compatible con mod_php.
 
-* Multiprocesamiento tipo ITK (mpm-itk)
+* Multiprocesamiento tipo **ITK** (mpm-itk)
     * Es nuevo y experimental, muy parecido a Prefork, utiliza subprocesos y no hilos (threads).
     * Permite asignar a cada virtualhost servido un usuario del sistema, así en un servidor compartido que aloja varios sitios web, los usuarios no pueden interactuar con los archivos del resto.
   
@@ -205,7 +205,7 @@ Hemos visto que Nginx con php-fpm tiene mejores resultados, aun así podemos mej
 
 * Varnish: Es un acelerador de HTTP que funciona como **proxy inverso**. Se situa delante del servidor web, cacheando la respuesta del servidor web en memoria. De forma que cuando un cliente demanda la url por segunda vez, Varnish le da la respuesta ahorrando recursos en el backend y permitiendo más conexiones simultáneas.
 
-Para ver el aumento de rendimiento con Varnish accede a este [post]()
+Para ver el aumento de rendimiento con Varnish accede a este [post](https://unbitdeinformacioncadadia.netlify.app/posts/2021/02/aumento-del-rendimiento-de-nginx-con-varnish/)
 
 Fuentes:
 
