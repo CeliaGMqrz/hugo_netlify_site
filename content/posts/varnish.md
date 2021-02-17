@@ -26,7 +26,7 @@ Características:
 * Ofrece soporte para GZIP y ESI
 
 
-## 2. Aumento de rendimiento en la ejecución de scrips PHP
+## 2. Aumento de rendimiento en la ejecución de scripts PHP
 
 ### 2.1. Configurar una máquina con Nginx + fpm_php. Ansible.
 
