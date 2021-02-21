@@ -513,57 +513,6 @@ import pymysql
 pymysql.install_as_MySQLdb()
 ```
 
-
-```sh
-(mezzanine) [centos@quijote mezzanine_app]$ python3.7 manage.py migrate
-/home/centos/mezzanine/lib/python3.7/site-packages/mezzanine/utils/conf.py:65: UserWarning: You haven't defined the ALLOWED_HOSTS settings, which Django requires. Will fall back to the domains configured as sites.
-  warn("You haven't defined the ALLOWED_HOSTS settings, which "
-Operations to perform:
-  Apply all migrations: admin, auth, blog, conf, contenttypes, core, django_comments, forms, galleries, generic, pages, redirects, sessions, sites, twitter
-Running migrations:
-  Applying contenttypes.0001_initial... OK
-  Applying auth.0001_initial... OK
-  Applying admin.0001_initial... OK
-  Applying admin.0002_logentry_remove_auto_add... OK
-  Applying contenttypes.0002_remove_content_type_name... OK
-  Applying auth.0002_alter_permission_name_max_length... OK
-  Applying auth.0003_alter_user_email_max_length... OK
-  Applying auth.0004_alter_user_username_opts... OK
-  Applying auth.0005_alter_user_last_login_null... OK
-  Applying auth.0006_require_contenttypes_0002... OK
-  Applying auth.0007_alter_validators_add_error_messages... OK
-  Applying auth.0008_alter_user_username_max_length... OK
-  Applying sites.0001_initial... OK
-  Applying blog.0001_initial... OK
-  Applying blog.0002_auto_20150527_1555... OK
-  Applying blog.0003_auto_20170411_0504... OK
-  Applying conf.0001_initial... OK
-  Applying core.0001_initial... OK
-  Applying core.0002_auto_20150414_2140... OK
-  Applying django_comments.0001_initial... OK
-  Applying django_comments.0002_update_user_email_field_length... OK
-  Applying django_comments.0003_add_submit_date_index... OK
-  Applying pages.0001_initial... OK
-  Applying forms.0001_initial... OK
-  Applying forms.0002_auto_20141227_0224... OK
-  Applying forms.0003_emailfield... OK
-  Applying forms.0004_auto_20150517_0510... OK
-  Applying forms.0005_auto_20151026_1600... OK
-  Applying forms.0006_auto_20170425_2225... OK
-  Applying galleries.0001_initial... OK
-  Applying galleries.0002_auto_20141227_0224... OK
-  Applying generic.0001_initial... OK
-  Applying generic.0002_auto_20141227_0224... OK
-  Applying generic.0003_auto_20170411_0504... OK
-  Applying pages.0002_auto_20141227_0224... OK
-  Applying pages.0003_auto_20150527_1555... OK
-  Applying pages.0004_auto_20170411_0504... OK
-  Applying redirects.0001_initial... OK
-  Applying sessions.0001_initial... OK
-  Applying sites.0002_alter_domain_unique... OK
-  Applying twitter.0001_initial... OK
-
-```
 * Ahora ya podemos hacer el migrate
 
 ```sh
