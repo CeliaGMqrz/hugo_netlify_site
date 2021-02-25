@@ -126,7 +126,7 @@ Your newly created PKI dir is: /usr/share/easy-rsa/pki
 ```
 Se ha creado el subdirectorio pki, donde después iremos creando las claves y certificados pertinentes.
 
-### Generación de los parámetros Diffie-Hellman
+## Generación de los parámetros Diffie-Hellman
 
 **Se trata de un protocolo de establecimiento de claves entre partes que no han tenido contacto previo utilizando un canal inseguro y de manera anónima. Se emplea generalmente como medio para acordar claves simétricas que serán empleadas para el cifrado de una sesión.**
 
@@ -512,6 +512,11 @@ default via 10.0.0.1 dev eth0
 
 ## Funcionamiento. Acceso desde el cliente a la LAN.
 
+Direccionamiento del cliente:
+
+![captura2.png](/images/vpn/captura2.png)
+
+Funcionamiento
 ![captura1.png](/images/vpn/captura1.png)
 
 * Comprobamos que podemos acceder al servidor y la red local lan.
