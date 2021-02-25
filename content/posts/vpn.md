@@ -375,6 +375,13 @@ debian@ansible:~$ sudo mv ta.key /etc/openvpn/keys/
 
 ## 2. Configuración del servidor openvpn
 
+Previamente hemos activado el bit de forwarding
+
+`nano /etc/sysctl.conf`
+```sh
+net.ipv4.ip_forward=1
+```
+
 Para configurar el servidor , creamos un archivo de configuración dentro del directorio openvpn
 
 ```sh
