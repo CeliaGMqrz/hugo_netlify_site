@@ -17,6 +17,8 @@ El modelo de **VPN de acceso remoto** es el modelo más usado actualmente. Los u
 
 ## 1. VPN de Acceso Remoto con OpenVPN y Certificados x509.
 
+![vpn.png](/images/vpn/vpn.png)
+
 **Descripción de la tarea 1 en cuestión:**
 
 
