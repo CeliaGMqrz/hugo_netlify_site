@@ -128,6 +128,9 @@ Se ha creado el subdirectorio pki, donde después iremos creando las claves y ce
 
 ### Generación de los parámetros Diffie-Hellman
 
+**Se trata de un protocolo de establecimiento de claves entre partes que no han tenido contacto previo utilizando un canal inseguro y de manera anónima. Se emplea generalmente como medio para acordar claves simétricas que serán empleadas para el cifrado de una sesión.**
+
+
 Para crearlo ejecutamos el siguiente comando
 
 ```sh
@@ -508,6 +511,8 @@ default via 10.0.0.1 dev eth0
 ```
 
 ## Funcionamiento. Acceso desde el cliente a la LAN.
+
+![captura1.png](/images/vpn/captura1.png)
 
 * Comprobamos que podemos acceder al servidor y la red local lan.
 
