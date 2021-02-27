@@ -382,6 +382,12 @@ Previamente hemos activado el bit de forwarding
 net.ipv4.ip_forward=1
 ```
 
+Tambien hemos descomentado la siguiente linea del fichero:
+
+`sudo nano /etc/default/openvpn `
+```sh
+AUTOSTART="all"
+```
 Para configurar el servidor , creamos un archivo de configuración dentro del directorio openvpn
 
 ```sh
