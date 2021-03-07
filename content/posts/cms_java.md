@@ -183,8 +183,6 @@ El módulo de autentificación por defecto lee las credenciales ubicadas en el f
 echo -n contrasenia | openssl md5
 ```
 
-(stdin)= c55d52d0b68a73e44dd7dc6bd0381b47
-
 
 Ahora creamos el xml de asignación para usuarios
 
