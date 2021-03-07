@@ -15,11 +15,6 @@ En esta entrada vamos a tratar de desplegar una aplicación CMS escrito en Java.
 * Sistema operativo: Debian Buster.
 * Necesitaremos usuario con privilegios root y la paquetería actualizada.
 
-`Vagrantfile`
-
-```sh
-
-```
 
 Una vez tengamos el entorno de trabajo nos aseguraremos que tenemos el sistema actualizado. 
 
